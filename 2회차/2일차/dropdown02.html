@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        section{
+            background-color: #f2f4f3;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        /* 
+           id는 #으로 표현
+           class는 .으로 표현
+        */
+        #main-nav a{
+            background-color: #255441;
+            height: 64px;
+            font-weight: bold;
+            color: #f6f7f8;
+            text-decoration: none;
+            /* flex는 기본적으로 화면을 꽉 채우는 특성이 있음 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #main-nav ul{
+            display: flex;
+            list-style: none;
+        }
+        #main-nav li{
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+        #main-nav a:hover{
+            background-color: #305753;
+        }
+
+        .submenu{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+        }
+        .submenu li{
+            display: none;
+        }
+        #main-nav li:hover .submenu > li{
+            display: block;
+        }
+        
+        .right-submenu{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 50%;
+        }
+        .right-submenu li{
+            display: none;
+        }
+        .submenu li:hover .right-submenu > li{
+            display: block;
+        }
+
+        .arrow{
+            color: #eee;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- flexbox를 사용하여 Dropdown 매뉴 구현하기 -->
+    <!-- 
+        class 이름은 중복이 가능하다
+        id 이름은 중복이 불가능하다(고유한 값)
+        nav(navigation): 시멘틱 태그
+     -->
+    <nav id="main-nav">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Services
+                        <!-- 
+                        span 태그는 특별한 의미 없음 
+                        시각적 효과를 나타내기 위해 사용
+                        span으로 레이아웃을 구성하는데 사용하지 않는다
+                        -->
+                        <!-- &#x25BC; 문자형기호 -->
+                        <span class="arrow">&#x25BC;</span>
+                </a>
+                <!-- 하위 메뉴 -->
+                <ul class="submenu">
+                    <li><a href="">국민소통</a></li>
+                    <li><a href="">규제혁신</a></li>
+                    <li><a href="">적극행정
+                            <span class="arrow">&#x25B6;</span>
+                        </a>
+                        <ul class="right-submenu">
+                            <li><a href="">제도소개</a></li>
+                            <li><a href="">소극행정 신고</a></li>
+                            <li><a href="">적극행정 자료실</a></li>
+                        </ul> 
+                    </li>
+                </ul>
+            </li>
+            <li><a href="">Download</a></li>
+            <li><a href="">FAQs
+                    <span class="arrow">&#x25BC;</span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">android</a></li>
+                    <li><a href="">ios</a></li>
+                </ul>
+            </li>
+            <li><a href="">About</a></li>
+        </ul>
+    </nav>
+    <!-- 
+        section: 시멘틱 태그 중 한개 
+        div.section과 같은 의미
+     -->
+     <section>
+        <h1>Hi, My name is Dobby!</h1>
+     </section>
+</body>
+</html>

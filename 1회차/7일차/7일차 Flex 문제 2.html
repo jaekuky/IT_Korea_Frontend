@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .outer_container{
+            /*width: 100vw;*/
+            height: 10vh;
+            background-color: yellowgreen;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .item{
+            border: 1px solid black;
+            flex: 0 0 20vw;
+        }
+
+        .item:nth-child(1){
+            background-color: #d7e8d4;
+        }
+        
+        .item:nth-child(2){
+            background-color: beige;
+            display: flex;
+        }
+        
+        .item:nth-child(3){
+            background-color: white;
+        }
+        
+        .inner_item{
+            border: 1px solid black;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+   <div class="outer_container">
+        <div class="item"></div>
+        <div class="item">
+            <div class="inner_item"></div>
+            <div class="inner_item"></div>
+            <div class="inner_item"></div>
+        </div>
+        <div class="item"></div>
+   </div>
+
+    
+</body>
+</html>

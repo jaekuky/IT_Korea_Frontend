@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .title {
+        text-align: center;
+        border: 5px solid purple;
+        margin-bottom: 10px;
+      }
+      .row {
+        display: flex;
+        border: 1px solid black;
+        text-align: center;
+      }
+      .item {
+        /*
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        */
+        text-align: center;
+        flex: 1;
+        border: 1px solid black;
+        padding: 50px;
+      }
+      .item:nth-child(1) {
+        background-color: blue;
+      }
+      .item:nth-child(2) {
+        background-color: white;
+      }
+      .item:nth-child(3) {
+        background-color: green;
+      }
+
+      @media screen and (max-width: 800px) {
+        .row {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      <h2>Media Queries</h2>
+      <h4>Resize the browswe window.</h4>
+      <h4>
+        Make sure you reach the breakepoint at 800px when resizing the frame.
+      </h4>
+    </div>
+    <div class="row">
+      <div class="item">
+        <h1>Left Item</h1>
+      </div>
+      <div class="item">
+        <h1>Center Item</h1>
+      </div>
+      <div class="item">
+        <h1>Right Item</h1>
+      </div>
+    </div>
+  </body>
+</html>

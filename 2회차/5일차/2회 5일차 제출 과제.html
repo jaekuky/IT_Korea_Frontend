@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Practice</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      .img-box {
+        width: 130px;
+        height: 100px;
+        /*border: 1px solid #000;*/
+      }
+      .img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .header {
+        /*border: 1px solid #000;*/
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #ffc0cb;
+      }
+      .nav {
+        /*border: 1px solid #000;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffc0cb;
+      }
+      .nav li {
+        height: 100%;
+        /*border: 1px solid red;*/
+        padding: 30px 30px;
+        font-size: 25px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .hero {
+        /*border: 1px solid purple;*/
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 30px;
+        background-image: url(image/background.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .hero h1 {
+        font-size: 60px;
+        font-weight: 800;
+      }
+      .hero p {
+        font-size: 20px;
+        font-weight: 500;
+        margin-top: 10px;
+        width: 50%;
+        text-align: center;
+      }
+
+      .section {
+        /*border: 2px solid red;*/
+        background-color: #ffc0cb;
+      }
+      .img-container {
+        /*border: 1px solid red;*/
+        margin: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .img-container .gallery {
+        /*border: 1px solid red;*/
+      }
+      .img-container .gallery .img-box {
+        width: 280px;
+        height: 320px;
+        /*border: 1px solid #000;*/
+        margin: 0 70px;
+      }
+      .img-container .gallery h4 {
+        font-size: 25px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .footer {
+        background-color: black;
+        color: white;
+      }
+      .footer p {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">
+        <div class="img-box">
+          <img src="" alt="" />
+        </div>
+      </div>
+      <ul class="nav">
+        <li><a href="">Menu1</a></li>
+        <li><a href="">Menu2</a></li>
+        <li><a href="">Menu3</a></li>
+        <li><a href="">Menu4</a></li>
+      </ul>
+    </div>
+
+    <div class="hero">
+      <h1>딸기로 시작하는 봄 여행!</h1>
+      <p>제철 딸기로 만든 봄철 메뉴를 소개합니다!</p>
+    </div>
+
+    <div class="section">
+      <div class="img-container">
+        <div class="gallery">
+          <div class="img-box">
+            <img src="image/딸기키위스무디.png" alt="" />
+          </div>
+          <h4>딸기키위스무디</h4>
+        </div>
+        <div class="gallery">
+          <div class="img-box">
+            <img src="image/딸기바질레모네이드.png" alt="" />
+          </div>
+          <h4>딸기바질레모네이드</h4>
+        </div>
+      </div>
+      <div class="img-container">
+        <div class="gallery">
+          <div class="img-box">
+            <img src="image/딸기키위모히또.png" alt="" />
+          </div>
+          <h4>딸기키위모히또</h4>
+        </div>
+        <div class="gallery">
+          <div class="img-box">
+            <img src="image/딸기바나나치즈프라푸치노.png" alt="" />
+          </div>
+          <h4>딸기바나나치즈프라푸치노</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Address:</strong>562 Road, Street 32, San Francisco</p>
+      <p><strong>Phone:</strong>+01 123 4567</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .px-box{
+            width: 200px;
+            height: 10px;
+            border: 1px solid black;
+        }
+        .percent-box{
+            border: 1px solid black;
+            width: 100%;
+            width: 50%;
+
+        }
+        .vh-box{
+            border: 1px solid black;
+            height: 100vh;
+            width: 100vw;
+        }
+        .em-parent{
+            font-size: 30px;
+        }
+        .em-child{
+            /*  부모 요소가 30px이니까, 자식 요소는 30px * 2 => 60px */
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        단위
+            1. px(픽셀): 절대 단위 (실무에서 잘 사용하지 않음)
+            2. %: 부모 요소를 기준으로 %단위로 지정 
+            3. vh: Viewport Height의 축약어, Viewport는 웹 브라우저 창을 뜻함
+                   1vh == 1%를 의미
+            4. vw: Viewport Width의 축약어, Viewport는 웹 브라우저 창을 뜻함
+                   1vw == 1%를 의미
+            (vh, vw는 배경화면을 구현할 때 종종 사용, 자주 사용하지는 않음)
+            5. em: 부모 요소에 곱하기 값이 단위로 환산됨
+
+            결론: em하고 퍼센트를 실무에서 많이 사용함
+     -->
+    
+</body>
+    <div class="px-box">
+        <!--px-box는 percent-box의 부모 요소-->
+        <div class="percent-box"></div>
+    </div>
+    <!-- <div class="vh-box"></div> -->
+    <div class="em-parent">
+        안녕하세요.
+        <div class="em-child">안녕하세요.</div>
+    </div>
+</html>

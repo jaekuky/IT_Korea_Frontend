@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .a {
+        border: 1px solid black;
+        /* div의 기본 width는 100% */
+        /* 실무에서는 객체의 크기를 정할때, padding을 많이 사용한다 */
+        padding: 50px;
+      }
+      .container {
+        display: flex;
+        border: 1px solid red;
+        margin-top: 50px;
+        display: flex;
+      }
+      .item {
+        /* flex는 아이템에 주어야 한다 */
+        flex: 1;
+        border: 1px solid purple;
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a">안녕하세요</div>
+    <div class="container">
+      <div class="item">나는 아이템</div>
+      <div class="item">나는 아이템</div>
+    </div>
+  </body>
+</html>

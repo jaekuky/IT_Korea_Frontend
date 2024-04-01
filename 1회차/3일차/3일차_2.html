@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 600px;
+            height: 300px;
+            border: 1px solid black;
+            margin: 50px auto;
+            position: relative;
+            
+        }
+        .box01{
+            width: 200px;
+            height: 100px;
+            border: 1px solid red;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+        .box02{
+            width: 300px;
+            height: 150px;
+            border: 1px solid black;
+            position: relative;
+            top: 100px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- position (실무에서 100 % 사용!!) -->
+    <!-- Relative는 자기 자신의 기본 위치 기준으로 이동
+         Absolute는 가장 가까운 부모 요소 중 position relative 
+         기준으로 이동 -->
+    <div class="box02">
+        <h4>지나가는 나그네</h4>
+    </div>
+
+    <div class="container">
+        <h4>Relative Position</h4>
+        <div class="box01">
+            <h4>Absolute Position</h4>
+        </div>
+
+    </div>
+</body>
+</html>

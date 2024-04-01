@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* *{}는 사이트 전체를 나타냄 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* ::before */
+      .name li::before {
+        content: "🐥";
+        margin-right: 15px;
+      }
+      /* ::after */
+      .name li::after {
+        content: "😎";
+        margin-left: 15px;
+      }
+      .black-border{
+        border: 2px solid black;
+        width: 400px;
+        height: 400px;
+      }
+      /* 
+        before라는 가상태그를 이용해서 img 태그처럼 사용 
+
+        html에서 이미지를 보여주는 방법
+        1. img 태그 사용 (div와 함께) ***
+        2. 가상태그 이용 **
+        3. div 태그 이용 (div안에 이미지를 넣는다)
+      */
+      .black-border::before{
+        content: "";
+        background-image: url(images/snail.gif);
+        background-size: 40px 40px;
+        width: 40px;
+        height: 40px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        before, after는 가상태그(실무에서 자주 사용)  
+    -->
+    <h2>Before, After 배우기</h2>
+    <ul class="name">
+      <li>Jhon</li>
+      <li>Michel</li>
+      <li>Jhonson</li>
+      <li>Mica</li>
+    </ul>
+    <h2>Before, After 사용</h2>
+    <div class="black-border">
+      <p>빨강 달팽이</p>
+    </div>
+  </body>
+</html>

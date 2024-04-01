@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .about{
+        border: 3px solid purple;
+        padding: 25px 0 25px 0;
+        
+    }
+    .section{
+        border: 3px solid black;
+        /* text-align: 글씨 가운데 정렬 */
+        text-align: center;
+        padding: 25px 9px;
+    }
+    .about_row{
+        border: 3px solid red;
+        display: flex;
+        align-items: center;
+        padding: 0 100px 0 100px;
+    }
+    .about_col{
+        border: 3px solid greenyellow;
+        flex: 1;
+    }
+    .about_col h1{
+        text-align: center;
+        margin-bottom: 5px;
+        border: 3px solid black;
+    }
+    .about_img{
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        margin: 0 auto;
+    }
+    .about_img img{
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+    <!-- about: 보라색 선 -->
+    <div class="about">
+        <!-- section: 검정색 선 -->
+        <h1 class="section">About</h1>
+        <!-- about_row: 빨간색 선 -->
+        <div class="about_row">
+            <h1>About Us</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dicta quidem praesentium atque debitis provident voluptatum eaque eum laboriosam? Animi error eius odit laboriosam minus at qui illum ex earum.</p>
+            <!-- about_col: 초록색 선 -->
+            <div class="about_col">
+                <div class="about_img">
+                    <img src="images/about.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</body>
+</html>

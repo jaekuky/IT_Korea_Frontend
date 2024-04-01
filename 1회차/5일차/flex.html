@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .flex-container{
+            width: 100vw;
+            height: 200px;
+            background-color: dodgerblue;
+            flex-wrap: wrap;
+            /*
+               item을 가로로 배치하고 싶으면, item의 부모 요소인 container에 flex를 설정한다
+            */
+            display: flex;
+            /* 
+                flex 방향은 기본적으로 row다!! 
+                item들을 세로로 배치하고 싶으면, flex-direction에 column을 사용하면 됨
+                row: 가로, column: 세로
+            */
+            flex-direction: row;
+            /*
+               align-items: 
+            */
+            align-items: center;
+            /*
+               justify: 메인축(가로축) 
+                    1. 가운데 정렬: center (실무에서 많이 사용)
+                    2. 오른쪽 끝: flex-end
+                    3. 왼쪽 끝: flex-start
+            */
+            justify-content: flex-end;
+        }
+        .flex-container > div{
+            background-color: #f1f1f1;
+            width: 100px;
+            margin: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flex 수업</h1>
+    <div class="flex-container">
+        <!-- Flex에서 container안에 있는 자식 요소들을 item이라고 함 -->
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+    </div>
+</body>
+</html>

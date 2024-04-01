@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: 0;
+            
+            font-family: "Nanum Brush Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .header{
+            display: flex;
+            justify-content: center; /* 가로(중심축) 가운데 */
+            align-items: center;     /* 세로(교차축) 가운데 */
+            font-size: 55px;
+        }
+        .container{
+            height: 50vh;
+            display: flex;
+        }
+        .bg{
+            /*border: 1px solid red;*/
+            height: 100%;
+            flex: 1;
+            cursor: pointer;
+            transition: 0.6s;
+            /* 이미지 관련 스타일 */
+            background-size: cover;
+            background-position: 50%;
+            position: relative;
+        }
+        .bg > p{
+            display: none;
+            font-size: 40px;
+            font-weight: 600;
+            color: gold;
+            position: absolute;
+            top: 10%;
+            right: 20%;
+        }
+        .charater{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .red{
+            background-image: url(images/red.png);
+        }
+        .green{
+            background-image: url(images/green.png);
+        }
+        .yellow{
+            background-image: url(images/yellow.png);
+        }
+        .blue{
+            background-image: url(images/blue.png);
+        }
+        .bg:nth-child(1){
+            background-color: crimson;
+        }
+        .bg:nth-child(2){
+            background-color: green;
+        }
+        .bg:nth-child(3){
+            background-color: yellow;
+        }
+        .bg:nth-child(4){
+            background-color: blue;
+        }
+        .bg:hover{
+            flex-grow: 2;
+            background-image: url(images/back.gif);
+        }
+        .bg:hover p{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        실무에서 이미지를 넣는 방법은 2가지 있음
+        1. img 태그 사용
+        2. div 태그 사용
+           div 태그로 이미지를 넣으면, 이미지를 더 자유롭게 컨트롤 할 수 있다.
+           실무에서는 img태그 보다는 div 태그로 이미지를 넣는다.
+     -->
+    <div class="header">
+        <h2 class="title">INSERT COIN</h2>
+        <img src="images/ball.png" alt="">
+    </div>
+    <div class="container">
+        <div class="bg">
+            <div class="charater red"></div>
+            <p>JOSE</p>
+        </div>
+        <div class="bg">
+            <div class="charater green"></div>
+            <p>RYNO</p>
+        </div>
+        <div class="bg">
+            <div class="charater yellow"></div>
+            <p>ROGER</p>
+        </div>
+        <div class="bg">
+            <div class="charater blue"></div>
+            <p>STRAW</p>
+        </div>
+    </div>
+</body>
+</html>

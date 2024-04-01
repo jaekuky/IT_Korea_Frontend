@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <!-- 
+            meta 태그: 데이터에 대한 정보를 표현 (HTML에 대한 정보를 표현)
+            HTML문서의 정보를 표현하는 태그
+            작성한 HTML문서를 검색엔진에 등록할 때 사용
+            메타데이터는 검색엔진(키워드 검색)에 사용
+            일반적으로 문자인코딩, 페이지 설명, 키워드, 문서 작성자가 들어간다
+            메타데이터는 head 요소 안에 작성한다. 
+        
+            <meta charset="UTF-8">: 문자인코딩을 UTF-8로 설정
+            UTF-8: 점점 컴퓨터가 널리 보급되면서, 여러 나라 사람들이 이용하기 시작하면서, 아랍어, 
+            한국어, 일어, 영어 등등 다양한 언어로 사람들이 코딩을 하기 시작 => 컴퓨터 입장에서 
+            점점 읽기 어려워짐
+            2000년대 초반, UTF-8이라는 문자인코딩을 도입
+            어느 언어로 작성하던 UTF-8로 읽어라! 라고 컴퓨터에 지시
+            
+            meta viewport는 디바이스 크기에 맞게 vw, vh 크기가 자동으로 결정되게 하는 태그
+            애플에서 아이폰, 아이패드 등 자사 제품을 모바일 브라우저와 호환하기 위해 반들었음 (2014~2015년도)
+        -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="대전코딩, 퍼블리싱, 프론트개발지, 반응형수업">
+    <meta property="article:author" content="Ryu Jae-kuk">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        div{
+            background-color: blue;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+   <h1>안녕하세요</h1> 
+   <p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae reiciendis exercitationem saepe unde. Quia, fuga sequi facilis commodi earum, consequuntur ratione mollitia eius eaque id pariatur nesciunt, doloremque fugit tempora.
+   </p>
+</body>
+</html>

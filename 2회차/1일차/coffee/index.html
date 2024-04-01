@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- index: HOME 또는 MAIN 화면 -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            width: 100%;
+            height: 90vh;
+            position: relative;
+            /*
+               이미지를 넣는 방법
+               1. img 태그 사용
+               2. css를 활용해서 태그에 직접 넣는 방법
+            */
+            background-image: linear-gradient(
+                    rgba(4, 10, 20, 0.8),
+                    rgba(4, 10, 20, 0.8)
+                ),
+                url(img/background.jpg);
+
+            background-size: cover;
+            background-position: center;
+        }
+        
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2% 6%;
+        }
+        
+        .img-logo{
+            width: 150px;
+            height: 100px;
+            background-color: white;
+            border-radius: 100%;
+        }
+        .img-logo img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        ul li{
+            list-style: none;
+            padding: 8px 12px;
+        }
+        .nav-link ul{
+            display: flex;
+        }
+        ul li a{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+        ul li:hover{
+            background-color: #f44336;
+            border-radius: 4px;
+            /* transition: 700ms: 0.7초 후에 응답해 줘 */
+            transition: 700ms;
+        }
+
+        .text-box{
+            position: absolute;
+            width: 90%;
+            color: white;
+            top: 40%;
+            left: 5%;
+            text-align: center;
+        }
+        .text-box h1{
+            font-size: 62px;
+        }
+        .text-box p{
+            font-size: 16px;
+            margin-top: 10px 0 40px;
+        }
+        .text-box a{
+            text-decoration: none;
+            color: white;
+            border: 1px solid white;
+            font-size: 18px;
+            padding: 12px 34px;
+            margin-top: 2%;
+        }
+        .text-box a:hover{
+            border: 1px solid #f44336;
+            background-color: #f44336;
+            transition: 1s;
+        }
+
+        .gallery{
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 100px;
+        }
+        .gallery h1{
+            font-size: 36px;
+            font-weight: 600;
+        }
+        .gallery p{
+            font-size: 16px;
+            color: #777;
+            padding: 10px;
+        }
+        .row{
+            display: flex;
+            margin-top: 2%;
+            justify-content: space-between;
+        }
+        .gallery-col{
+            /* flex-basis: 아이템 기본 크기 설정 */
+            flex-basis: 24%;
+            margin-bottom: 5%;
+            position: relative;
+        }
+
+        .gallery-col .img-box{
+            width: 380px;
+            height: 220px;
+        }
+        .img-box img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .layer{
+            position: absolute;
+            left: 30%;
+            bottom: 45%;
+        }
+        .layer h3{
+            font-size: 20px;
+            color: rgba(46, 49, 49, 1);
+        }
+
+        .programs{
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 80px;
+            padding-bottom: 50px;
+            background-color: rgba(232, 232, 232, 0.5);
+        }
+        .programs h1{
+            font-size: 36px;
+            font-weight: 600;
+        }
+        .programs p{
+            font-size: 16px;
+            color: #777;
+            padding: 10px;
+        }
+        .programs-data{
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 3px 7px gray;
+        }
+        tr{
+            border: 1px solid #444444;
+        }
+        thead{
+            box-shadow: 0 1px 5px gray;
+        }
+        th{
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-align: center;
+        }
+        td{
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        
+        /* 자식 중 짝수 번째에 적용 */
+        tr:nth-child(even){
+            background-color: #eaeaeb;
+        }
+
+        .contact{
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 60px;
+            text-align: center;
+        }
+        .contact h1{
+            font-size: 36px;
+        }
+        .contact p{
+            font-size: 16px;
+            color: #777;
+            padding: 10px;
+        }
+        .kakao-map{
+            margin: 0 auto;
+            width: 60%;
+            height: 350px;
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+   <header>
+        <!-- 
+            header는 div.header와 같은 의미 
+            header와 같은 태그를 '시멘틱태그'라고 함
+        -->
+        <!-- nav는 div.nav와 같음 -->
+        <nav>
+            <a href="">
+                <div class="img-logo">
+                    <img src="img/logo.png" alt="">
+                </div>
+                <div class="nav-link">
+                    <ul>
+                        <li><a href="">HOME</a></li>
+                        <li><a href="">ABOUT</a></li>
+                        <li><a href="">PROGRAMS</a></li>
+                        <li><a href="">FACILITIES</a></li>
+                        <li><a href="">CONTACT</a></li>
+                    </ul>
+                </div>
+            </a>
+        </nav>
+        <!-- text box -->
+        <div class="text-box">
+            <h1>Coffee one day class</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto veritatis saepe minima aliquid? Temporibus magni distinctio explicabo laborum ipsa voluptatibus adipisci, impedit dolore, laboriosam quibusdam cupiditate cumque nostrum aspernatur. Vitae.
+            </p>
+            <a href="">PROGRAM CHECK</a>
+        </div>
+   </header> 
+   <div class="gallery">
+    <h1>COFFEE CLASS</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nam necessitatibus repudiandae voluptas quidem ad impedit quia eligendi iusto, temporibus facilis. Reiciendis libero numquam voluptatibus magnam quas, saepe architecto explicabo?</p>
+    <div class="row">
+        <div class="gallery-col">
+            <div class="img-box">
+                <img src="" alt="">
+            </div>
+            <div class="layer">
+                <h3>LATTE ART</h3>
+            </div>
+        </div>
+        <div class="gallery-col">
+            <div class="img-box">
+                <img src="" alt="">
+            </div>
+            <div class="layer">
+                <h3>BASIC BARISTA</h3>
+            </div>
+        </div>
+        <div class="gallery-col">
+            <div class="img-box">
+                <img src="" alt="">
+            </div>
+            <div class="layer">
+                <h3>CUSTOMER SERVICE</h3>
+            </div>
+        </div>
+        <div class="gallery-col">
+            <div class="img-box">
+                <img src="" alt="">
+            </div>
+            <div class="layer">
+                <h3>MENU DEVELOPMENT</h3>
+            </div>
+        </div>
+    </div>
+   </div>
+   <!-- programs -->
+   <div class="programs">
+    <h1>COFFEE PROGRAMS</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui sapiente voluptates veritatis earum facilis fugit laborum quod. Eveniet, pariatur aliquid itaque laborum placeat ab. Laudantium fugit eum distinctio optio pariatur?</p>
+    <table class="programs-data">
+        <!-- thead: table head -->
+        <thead>
+            <!-- tr: table row(행) -->
+            <tr>
+                <!-- th: 열 -->
+                <th>TIME</th>
+                <th>MON</th>
+                <th>TUE</th>
+                <th>WED</th>
+                <th>THU</th>
+                <th>FRI</th>
+                <th>SAT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>11:00~12:00</td>
+                <td>SUPER BARISTA</td>
+                <td>-</td>
+                <td>SUPER BARISTA</td>
+                <td>-</td>
+                <td>SUPER BARISTA</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>14:30~15:30</td>
+                <td>JUNIOR BARISTA(KIDS)</td>
+                <td>-</td>
+                <td>JUNIOR BARISTA(KIDS)</td>
+                <td>-</td>
+                <!-- colspan: 병합 -->
+                <td colspan="2">JUNIOR BARISTA(KIDS)</td>
+            </tr>
+            <tr>
+                <td>19:30~20:30</td>
+                <td>LATTE ART</td>
+                <td>-</td>
+                <td>LATTE ART</td>
+                <td>-</td>
+                <!-- colspan: 병합 -->
+                <td colspan="2">LATTE ART</td>
+            </tr>
+        </tbody>
+    </table>
+   </div>
+   <!-- contact -->
+   <div class="contact">
+    <h1>CONTACT</h1>
+    <p>IT Korea, 211, Seo-gu, Daejeon, Republic of Korea</p>
+    <div class="row">
+        <div class="kakao-map">
+            <div class="kakao-map" id="map">
+                <!-- 카카오 맵을 여기에 삽입 -->
+            </div>
+        </div>
+    </div>
+   </div>
+</body>
+
+<!-- 
+    kakao map key: 13486c77efed908c6b1a86c31c42e4bf
+ -->
+ <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=13486c77efed908c6b1a86c31c42e4bf&libraries=services,clusterer,drawing,geocoder"></script>
+ <script>
+    // 카카오 지도 로직 구현(javascript)
+    var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+    var options = { //지도를 생성할 때 필요한 기본 옵션
+        // IT Korea 위도, 경도: 36.35104, 127.3797
+	    center: new kakao.maps.LatLng(36.35104, 127.3797), //지도의 중심좌표.
+	    level: 3 //지도의 레벨(확대, 축소 정도)
+    };
+
+    var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+    
+    // 마커가 표시될 위치입니다 
+    var markerPosition  = new kakao.maps.LatLng(36.35104, 127.3797); 
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+</script>
+</html>

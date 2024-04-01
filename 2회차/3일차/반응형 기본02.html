@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빽다방</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .header{
+            width: 100vw;
+            height: 500px;
+            border: 1px solid black;
+            /*
+                이미지 넣는법
+                1. img 태그에 직접
+                2. div 태그에 직접
+            */
+            background-image: url(/2회차/3일차/image/menu.jpeg);
+            background-size: cover;
+            background-position: bottom;
+            
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        .header-content{
+            border: 1px solid black;
+            text-align: center;
+        }
+        .header-content h2{
+            /* rem 기본값: 16px */
+            font-size: 3rem;
+            font-weight: 400;
+        }
+        .line{
+            width: 40px;
+            height: 3px;
+            background-color: black;
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+
+        .nav{
+            display: flex;
+            border: 1px solid black;
+            width: 50%;
+            text-align: center;
+        }
+        .nav li{
+            list-style: none;
+            padding: 10px 0;
+            font-size: 1rem;
+            background-color: white;
+            /* 각 아이템 동일한 크기 부여 */
+            flex: 1;
+        }
+        .nav li a{
+            text-decoration: none;
+            color: #909090;
+        }
+        .nav .on{
+            background-color: #ffe600;
+            color: black;
+        }
+        
+        /* @media에서 'screen and'는 생략 가능*/
+        @media (max-width: 799px){
+            /* 화면 너비가 799px이면, nav의 객체를 세로로 정렬 */
+            .nav{
+                flex-direction: column;
+                width: 85vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 빽다방 메뉴판 만들기!! (반응형 포함) -->
+    <div class="header">
+        <div class="header-content">
+            <h2>커피</h2>
+            <div class="line"></div>
+            <p>뉴 크롭 원두를 사용하여 더욱 더 신선한 커피 메뉴을 커피 메뉴를 만나보세요</p>
+        </div>
+        <ul class="nav">
+            <li><a href="#"></a>신메뉴</li>
+            <li><a class="on" href=""></a>커피</li>
+            <li><a href="#"></a>음료</li>
+            <li><a href="#"></a>아이스크림/디저트</li>
+            <li><a href="#"></a>빽스치노</li>
+        </ul>
+    </div>
+</body>
+</html>

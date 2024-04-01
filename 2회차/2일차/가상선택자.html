@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar2 li{
+            list-style: none;
+            padding: 0 20px;
+            /* position: releative를 쓰면, absolute도 온다 */
+            position: relative;
+        }
+        .line{
+            display: none;
+            width: 30%;
+            height: 2px;
+            background-color: red;
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+        }
+        .active:hover .line{
+            display: block;
+        }   
+        
+        .navbar li{
+            list-style: none;
+            padding: 0 20px;
+            position: relative;
+        }
+        .navbar li a.active:after{
+            display: none;
+            content: '';
+            width: 30%;
+            height: 2px;
+            background-color: red;
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+        }
+        .navbar li a.active:hover:after{
+            display: block;
+            width: 30%;
+            height: 2px;
+            background-color: red;
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        가상 선택자란?
+        :after, before    
+    -->
+    <!-- 가상 선택자를 사용하지 않고 레이아웃 구현하기 -->
+    <h2>가상 선택자 미사용</h2>
+    <ul class="navbar2">
+        <li class="active">
+            <a href="">Home</a>
+            <div class="line"></div>
+        </li>
+        <li><a href="">Shop</a></li>
+        <li><a href="">Blog</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+    </ul>
+    
+    <!-- 가상 선택자 사용하기 -->
+    <!-- 내용없는 div가 필요할 때, 자주 사용한다 -->
+    <h2>가상 선택자 사용</h2>
+    <ul class="navbar">
+        <li><a class="active" href="">Home</a></li>
+        <li><a href="">Shop</a></li>
+        <li><a href="">Blog</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+    </ul>
+</body>
+</html>

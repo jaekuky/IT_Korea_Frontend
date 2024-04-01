@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .black-box{
+            width: 200px;
+            border: 1px solid #000;
+            position: relative;
+        }
+        .red-box{
+            width: 100px;
+            height: 500px;
+            border: 1px solid red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!-- position absolute 개념을 복습해 보자 -->
+    <div class="black-box">
+        <p>Hello World</p>
+        <!-- 
+            absolute
+            1. 부모 요소 내부에 더이상 속박되지 않는다
+            ***** 독립된 레이아웃을 가지게 된다 *****
+            2. absolute는 기본적으로 브라우저 화면 상에서 어디든 원하는 위치에
+            자유롭게 배치가 가능하고, 심지어 부모 요소 위에 겹쳐서 배치가 가능하다
+         -->
+        <div class="red-box"></div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus obcaecati consequatur cumque animi quos! Ipsa numquam ab error earum corporis voluptatem autem sit, dolorem beatae est magnam amet ex incidunt!</p>
+    
+</body>
+</html>

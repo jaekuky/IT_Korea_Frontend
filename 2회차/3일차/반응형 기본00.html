@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: tan;
+            color: red;
+        }
+        /* 
+            if문과 비슷한 역할을 하는 것이 @media
+            @media: 미디어 쿼리, 미디어 타입이나 특정 장치에 따라 스타일을 적용할 수 있게 해주는 CSS3의 기능
+            max-width: 992px: 화면의 최대 너비가 992px일 때 스타일을 적용
+            @: annotation, 자바에서 많이 사용
+        */
+        @media screen and (max-width: 992px){
+            body{
+                background-color: blue;
+                color: white;
+            }
+        }
+        @media screen and (max-width: 600px){
+            body{
+                background-color: olive;
+                color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+       반응형 이란?: 여러 디바이스(태블릿, 폰, PC 등)에서 웹사이트를 볼 때, 
+       각 디바이스 화면 사이즈에 맞게 사이트를 자동으로 배치함 
+     -->
+    <h1>Resize the browse window to see the effect!</h1>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo dolorum culpa quisquam numquam ea perspiciatis perferendis ad eos vero, incidunt eligendi repellat error dolorem hic eius autem placeat, praesentium quidem!
+    </p>
+
+</body>
+</html>

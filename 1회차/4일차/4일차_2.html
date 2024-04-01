@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 1000px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 50px auto;
+            display: flex;
+            /*
+               flex 레이아웃은 가로축과 세로축이 있음
+               가로축은 중심축(main) -> justify
+               세로측은 교차축(cross) -> align
+               
+               ***** flex라고 설정한 요소에 아이템들의 가로축과 세로축을 설정한다 *****
+            */
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .item{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- flex -->
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+</html>

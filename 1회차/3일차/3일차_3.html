@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            border: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .container{
+            height: 200px;
+            background-color: dodgerblue;
+            /*
+              flex는 flexible(유연한)의 줄임말
+              flex를 사용하면 화면의 크기가 줄어들어도, 자식태그들의 위치를 화면 크기에 맞게 조절하여
+              부모태그를 벗어나지 않도록 조절한다
+            */
+            display: flex;
+            /*justify는 가로축을 의미*/
+            /*align은 세로축을 의미*/
+            justify-content: space-between;
+        }
+        .container > div{
+            background-color: #f1f1f1;
+            width: 150px;
+            /*margin: 10px;*/
+            /* inline-block은 실무에서 사용하지 않는다
+            display: inline-block;
+            */
+
+        }
+    </style>
+</head>
+<body>
+     <!-- Flex, 실무에서 사용률 1000000000 %
+          중요도  
+          1. margin, padding 
+          2. flex***
+          3. position  
+          이것만 알아도 홈페이지 제작 쌉가능!!
+        
+          Flex는 복잡한 레이아웃을 간편하게 만들 수 있도록 도와준다. (ex. 유튜브, 인스타그램, 페이스북 등
+          크기와 위치를 동적으로 조절 가능하다. (죽, 핸드폰 사이즈던, 모니터 사이즈던 자동으로 줄어들고, 늘어난다)
+          이를 통해, 다양한 디바이스(핸드폰 등)의 화면 크기에 맞춰 레이아웃을 만들 수 있다-->
+          <div class="container">
+              <!-- div는 블록 태그, 기본적으로 세로로 배치됨 -->
+            <div>
+                1
+                <img src="KakaoTalk_Photo_2024-02-15-20-32-11.gif" alt="">
+            </div>
+            <div>
+                2
+                <img src="KakaoTalk_Photo_2024-02-15-20-32-30.gif" alt="">
+            </div>
+            <div>
+                3
+                <img src="pig.gif" alt="">
+            </div>
+            <div>
+                4
+                <img src="ribbon-pig.gif" alt="">
+            </div>
+          </div>
+</body>
+</html>

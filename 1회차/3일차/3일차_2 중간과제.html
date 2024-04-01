@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 600px;
+            height: 300px;
+            border: 1px solid black;
+            position: relative;
+        }
+        /*container 안에 있는 div에 스타일을 주겠다*/
+        /*
+          box01과 box02는 container의 자식 태그다
+          부모태그가 relative이고, 자식태그가 absolute여야
+          부모태그 기준으로 움직일 수 있다
+        */   
+        .container > div{
+            width: 200px;
+            height: 100px;
+            border: 1px solid Red;
+            position: absolute;
+        }
+        .box01{
+            top: 0px;
+            right: 0px;
+        }
+        .box02{
+            bottom: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+        <div class="box01">
+            <img src="pig.gif" alt="">
+        </div>
+        <div class="box02">
+            <img src="ribbon-pig.gif" alt="">
+        </div>
+   </div> 
+</body>
+</html>

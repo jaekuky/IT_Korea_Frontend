@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box01{
+            width: 150px;
+            height: 100px;
+            border: 1px solid black;
+            margin-bottom: 100px;
+            /* margin auto는 left, right만 적용된다 */
+            margin-left: auto;
+            margin-right: auto;
+            /*
+            margin-top: auto;
+            margin-bottom: auto;
+            */
+            padding-left: 20px;
+        }
+        .box02{
+            width: 150px;
+            height: 100px;
+            border: 1px solid red;
+        }
+        .padding-box{
+            width: 130px;
+            height: 80px;
+            border: 1px solid red;
+        }
+        h2{
+            border: 1px solid black;
+            padding-top: 30px;
+        }
+        /*
+           css선택자: 특정 요소의 하위요소에 스타일을 적용하는 방법은 크게 2가지가 있다.
+           1. 자식 선택자: ">" 기호를 사용하여 특정 요소의 자식 요소만 스타일 적용
+           2. 하위 선택자: 공백(space)을 사용하여 특정 요소의 모든 하위 요소에 스타일 적용
+        */
+        .a>p{
+            color: red;
+        }
+        .b p{
+            color: red;
+        }
+        .relative-box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            position: relative;
+        }
+        /*
+           absolute는 부모가 relative일 때, relative를 기준으로 움직일 수 있다
+           ex) 실무에서 팝업창 닫기 버튼, 확인 버튼을 만들 때 주로 사용함
+        */
+        .absolute-box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        margin & padding 
+        position
+        flex
+    -->
+    <!-- 
+        margin
+        div는 기본적으로 가로가 아닌 세로로 배치!
+        margin은 테두리(border)를 기준으로 이웃하는 요소 사이(border와 border 사이)의 간격을 설정
+        margin은 좌우로 auto를 하게되면, 모니터 사이즈에 상관없이 화면 가운데로 배치가 가능하다
+    -->
+    <div class="box01">
+        <!-- 
+            padding은 테두리(border)와 내용(contents) 사이의 간격을 조절할 때 사용
+            padding은 부모태그에서 설정해야 한다
+            padding은 auto가 없다
+         -->
+        <div class="padding-box"></div>
+    </div>
+    <div class="box02"></div>
+    
+    <h2>안녕하세요, 저는 금요일에도 수업을 듣는 열정남입니다!</h2>
+    
+    <div class="a">
+        <p>안녕하세요, 롯데리아입니다.</p>
+    </div>
+    <div class="b">
+        <p>안녕하세요, 버거킹입니다.</p>
+    </div>
+
+    <h2>Position</h2>
+    <div class="relative-box">
+        <div class="absolute-box"></div>
+    </div>
+</body>
+</html>

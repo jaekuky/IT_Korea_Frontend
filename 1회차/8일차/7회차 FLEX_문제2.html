@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 1900px;
+        height: 700px;
+        padding: 25px 100px;
+        border: 1px solid black;
+      }
+      .menu {
+        width: 100%;
+        height: 10%;
+        padding: 25px 0px;
+        border: 1px solid black;
+        text-align: center;
+      }
+      .inner_container {
+        width: 100%;
+        height: 95%;
+        display: flex;
+        justify-content: space-around;
+        border: 1px solid black;
+      }
+      .inner_container h2 {
+        background-color: red;
+        color: #fff;
+        text-align: center;
+        font-size: 20px;
+        padding: 5px;
+      }
+      .image {
+        width: 150px;
+        height: 150px;
+      }
+      .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .breakfast,
+      .lunch,
+      .dinner {
+        border: 1px solid grey;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu">
+        <h2>Menu</h2>
+      </div>
+      <div class="inner_container">
+        <div class="breakfast">
+          <h2>Breakfast</h2>
+          <div class="image">
+            <img src="images (1)/breakfast1.jpg" alt="" />
+          </div>
+          <h3>Tasty Dish01</h3>
+          <h4>10$</h4>
+          <div class="image">
+            <img src="images (1)/breakfast2.jpg" alt="" />
+          </div>
+          <h3>Tasty Dish02</h3>
+          <h4>10$</h4>
+          <div class="image">
+            <img src="images (1)/breakfast3.jpg" alt="" />
+          </div>
+          <h3>Tasty Dish03</h3>
+          <h4>10$</h4>
+        </div>
+        <div class="lunch">
+          <h2>Lunch</h2>
+          <div class="image">
+            <img src="images (1)/lunch1.jpg" alt="" />
+          </div>
+          <h3>Tasty Dish01</h3>
+          <h4>25$</h4>
+          <div class="image">
+            <img src="images (1)/lunch2.jpg" alt="" />
+          </div>
+          <h3>Tasty Dish02</h3>
+          <h4>45$</h4>
+          <div class="image">
+            <img src="images (1)/lunch3.jpg" alt="" />
+          </div>
+          <h3>Tasty Dish03</h3>
+          <h4>30$</h4>
+        </div>
+        <div class="dinner">
+          <h2>Dinner</h2>
+          <div class="image">
+            <img src="images (1)/dinner1.jpg" alt="" />
+          </div>
+          <h3>Tasty Dish01</h3>
+          <h4>59$</h4>
+          <div class="image">
+            <img src="images (1)/dinner2.jpg" alt="" />
+          </div>
+          <h3>Tasty Dish02</h3>
+          <h4>49$</h4>
+          <div class="image">
+            <img src="images (1)/dinner3.jpg" alt="" />
+          </div>
+          <h3>Tasty Dish03</h3>
+          <h4>49$</h4>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

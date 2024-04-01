@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            height: 100vh;
+            /* 1. header, main, footer을 세로로 배치 */
+            flex-direction: column;
+        }
+        .main{
+            /* flex-grow: 1;, flex-shrink: 1; flex-basis: 0% */
+            flex: 1;
+            display: flex;
+            /*
+               main에 'display: flex'해야 Article, Aside, Nav가 
+               가로로 배치됨
+            */
+        }
+        .Article{
+            flex: 1;
+        }
+        .Aside,
+        .Nav{
+            flex: 0 0 20vw;
+        }
+        .Aside{
+            background-color: beige;
+        }
+        .Nav{
+            background-color: #D7E8D4;
+        }
+        .header,
+        .footer{
+            background-color: yellowgreen;
+            height: 20vh;
+        }
+        .header, .footer, .Article, .Aside, .Nav{
+            padding: 1%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        요소(태그)
+        요소, 태그, 마크업
+     -->
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="main">
+            <div class="Article">Article</div>
+            <div class="Aside">Aside</div>
+            <div class="Nav">Nav</div>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>

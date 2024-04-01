@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        border: 3px solid red;
+        margin: 30px auto;
+      }
+      .title,
+      .events,
+      .event,
+      .event-img,
+      .event-title,
+      .event-info {
+        border: 1px solid black;
+      }
+      .title {
+        text-align: center;
+        font-size: 100px;
+        font-weight: 500;
+        color: #484872;
+        margin-bottom: 30px;
+      }
+      .events {
+        margin-top: 30px;
+        display: flex;
+        flex: 1;
+        justify-content: space-evenly;
+      }
+      .event-img {
+        width: 550px;
+        height: 380px;
+        margin: 10px auto;
+      }
+      .event-img img {
+        width: 100%;
+        height: 100%;
+      }
+      .event-title {
+        width: 250px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+        color: #484872;
+        margin: 10px auto;
+      }
+      .event-info {
+        width: 680px;
+        text-align: center;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <p>Upcoming Events</p>
+      </div>
+      <div class="events">
+        <div class="event">
+          <div class="event-img">
+            <img src="" alt="" />
+          </div>
+          <p class="event-title">Everest Camp Trek</p>
+          <p class="event-info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab illum
+            expedita odio commodi, eius fugit, earum saepe quae voluptas hic
+            ratione! Excepturi, sunt? Tempore illum eligendi, iste aspernatur
+            odit tenetur!
+          </p>
+        </div>
+        <div class="event">
+          <div class="event-img">
+            <img src="" alt="" />
+          </div>
+          <p class="event-title">Waling Holidays</p>
+          <p class="event-info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+            mollitia ducimus, numquam explicabo suscipit nobis fuga laudantium
+            amet dicta dolore nulla porro omnis deleniti perferendis obcaecati
+            facilis possimus quo nam.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

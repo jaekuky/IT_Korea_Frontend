@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/2255d34ffc.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            /* a 태그 밑줄 없애기 */
+            text-decoration: none;
+            color: #f0f4f5;
+        }
+
+        .navbar{
+            display: flex;
+            background-color: #263343;
+            justify-content: space-between;
+            padding: 8px 12px;
+            align-items: center;
+        }
+        .navbar > div{
+            border: 1px solid red;
+        }
+
+        ul li{
+            /* li 태그 왼쪽에 생긴 점을 없앰 */
+            list-style: none;
+            border: 1px solid tomato;
+            padding: 8px 12px;
+        }
+        ul li:hover{
+            background-color: #d49466;
+            border-radius: 4px;
+        }
+        .menu ul{
+            display: flex;
+        }
+
+        .logo{
+            color: #fff;
+            font-size: 24px;
+        }
+        
+        .icons{
+            color: #fff;
+        }
+        .icons i{
+            padding: 8px 12px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- navbar: Navgation Bar의 축약어 -->
+    <!-- 심플 헤더 메뉴 만들기 -->
+    <div class="navbar">
+        <div class="logo">
+            <!-- i: icon 태그 -->
+            <i class="fab fa-accusoft"></i>
+            <a href="">Happy Coding</a> 
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Weddings</a></li>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Booking</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-square"></i>
+        </div>
+    </div>
+</body>
+</html>

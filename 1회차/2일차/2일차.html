@@ -1,0 +1,101 @@
+<!-- ! + Tab 키: HTML 자동 생성 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td{
+            margin : 100px auto;
+            border: 1px solid black;
+        }
+        th, td{
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 어기서 작업 예정  -->
+    <!-- 오늘 시간에는 Table과 간단한 CSS 배울 예정 -->
+    
+    <!-- 테이블 태그(table): 사이트에서 시간표, 목록(표)를 작성할 때 사용하는 태그 -->
+    <!-- 실무에서 테이블 태그 사용률 100 % -->
+    <!-- tr: table row의 줄임말, 테이블에서 행을 나타냄 -->
+    <!-- th: table header의 줄임말, 테이블에서 열제목을 나타냄 -->
+    <!-- td: table data의 줄임말, 테이블에서 열을 나타냄 -->
+    <h2>테이블 태그 안녕하세요</h2>
+    <table>
+        <tr>
+            <th>월</th>
+            <th>교통비</th>
+            <th>식비</th>
+        </tr>
+        <tr>
+            <td>1월</td>
+            <td rowspan="2">150 $</td> <!--rowspan: 세로로 셀 병합-->
+            <td>80 $</td>
+        </tr>
+        <tr>
+            <td>2월</td>
+            <!-- <td>150 $</td> -->
+            <td>80 $</td>
+        </tr>
+        <tr>
+            <td>3월</td>
+            <td>250 $</td>
+            <td>80 $</td>
+        </tr>
+        <tr>
+            <td>4월</td>
+            <td colspan="2">350 $</td> <!--colspan: 가로로 셀 병합-->
+            <!-- <td>350 $</td> -->
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th></th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+        </tr>
+        <tr>
+            <td>18:00 ~ 19:00</td>
+            <td rowspan="3">요가</td>
+            <td rowspan="2">다이어트 복싱</td>
+            <td>요가</td>
+            <td rowspan="4">필라테스</td>
+            <td rowspan="2">다이어트 복싱</td>
+        </tr>
+        <tr>
+            <td>19:00 ~ 20:00</td>
+            <!-- <td rowspan="3">요가</td> -->
+            <!-- <td rowspan="2">다이어트 복싱</td> -->
+            <td>필라테스</td>
+            <!-- <td rowspan="4">필라테스</td> -->
+            <!-- <td rowspan="2">다이어트 복싱</td> -->
+        </tr>
+        <tr>
+            <td>20:00 ~ 21:00</td>
+            <!-- <td rowspan="3">요가</td> -->
+            <td>요가</td>
+            <td>요가</td>
+            <!-- <td rowspan="4">필라테스</td> -->
+            <td rowspan="2">필라테스</td>
+        </tr>
+        <tr>
+            <td>21:00 ~ 22:00</td>
+            <td>필라테스</td>
+            <td>필라테스</td>
+            <td>필라테스</td>
+            <!-- <td rowspan="4">필라테스</td> -->
+            <!-- <td rowspan="2">다이어트 복싱</td> -->
+        </tr>
+    </table>
+</body>
+</html>

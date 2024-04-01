@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .btn{
+            margin-top: 130px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main{
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .item_1{
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        .item_2{
+            /* 부모 width, height의 50% */
+            width: 50%;
+            height: 50%;
+            border: 1px solid red
+        }
+        .item_3{
+            /* 부모의 기본 크기는 16px */
+            /* 10rem == 160px */
+            /* rem은 em보다 더 자주 사용한다 */
+            width: 10rem;
+            height: 10rem;
+            /*
+            width: 160px;
+            height: 160px; 
+            */
+            border: 1px solid #000;                                                  
+        }
+        .item_4{
+            /* vw, vh: 화면 전체의 width, height의 50% */
+            width: 50vw;
+            height: 50vh;
+            border: 1px solid #000;
+        }
+        
+        /* 바로 밑의 자식태그에만 적용 */
+        .box-5 > p{
+            font-size: 32px;
+        }
+        /* 모든 자식태그에 적용 */
+        .box-5 p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        block vs. inline
+        block: 
+            1. 세로 배치
+            2. 별도의 값을 주지 않을 경우, width는 100 %가 된다 (margin auto가 적용)
+            3. width, height 값을 통해 크기를 지정할 수 있다.
+            - h1 ~ h6
+            - ul, li
+            - div, p, form
+              
+        inline:
+            1. 가로 배치
+            2. 별도 width, height 값을 설정해도 무시한다.
+            3. margin auto (x) 
+            - a, span, img, input, button, select
+      -->
+      <div class="main">안녕? 나는 대표적인 block 태그야!</div>
+      <button class="btn">버튼 1</button>
+      <h4>안녕하세요</h4>
+      <button>버튼 2</button>
+      <button>버튼 3</button>
+      
+      <!-- 
+        크기
+        1. px
+        2. %
+        3. vw, vh
+        4. em, rem
+       -->
+       <div class="item_1">
+        <div class="item_2"></div>
+       </div>
+       <div class="item_3">안녕하세요</div>
+       <div class="item_4">안녕하세요</div>
+       <div></div>
+       
+       <!-- 
+        선택자
+        1. class 선택자
+        .item{
+
+        }
+
+        2. 태그 선택자
+        div{
+
+        }
+
+        3. 가상 선택자
+        div:hover{
+
+        }
+        div::after, before{
+
+        }
+
+        4. 구조 선택자
+        div:nth-child(1){
+
+        }
+        첫번째 자식요소만 선택한다.
+        -->
+        <div class="box-5">
+            <p>나는 box-5의 자식태그야</p>
+            <div class="box-6">
+                <p>나는 box-5와 box-6의 자식태그야</p>
+            </div>
+        </div>
+        
+        <!-- 
+            padding, margin
+
+            padding: border와 contents 사이의 여백 조절
+            margin: border와 border 사이의 여백 조절
+         -->
+</body>
+</html>

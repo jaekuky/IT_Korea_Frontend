@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        기본적으로 웹브라우저가 영역을 일부 차지하고 있기 때문에,
+        아래 작업을 해야한다. 
+        */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div{
+            /* px(픽셀)은 화면의 가장 작은 단위*/
+            width: 150px;
+            height: 150px;
+            background-color: antiquewhite;
+            border: 1px solid black;
+        }
+        /* box01이라는 이름을 가지는 클래스에 style 적용 */
+        .box01{
+            background-color: aqua;
+            margin-bottom: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 10px;
+        }
+        /* box02 ~ box03까지 다른 색깔로 변경하시오*/
+        .box02{
+            background-color: violet;
+            margin-bottom: 50px;
+            display: inline-block;
+        }
+        .box03{
+            background-color: red;
+            color: white;
+            margin-top: 50px;
+            margin-left: 50px;
+            display: inline-block;
+        }
+        /* 
+        box를 분리하는 방법은 여러개가 있는데, 그중 대표적으로 margin이라는 것을 사용한다
+
+        margin은 경계선 바깥쪽 여백을 의미함
+        padding은 경계선 안쪽 여백을 의미함
+            
+        */
+    </style>
+</head>
+<body>
+    <!-- 
+        div 태그, 실무에서 1000000 % 사용, div를 모르면 사이트를 제작할 수 없음
+        div는 division(나누다)의 줄임말, 블록을 만듦 -> 블록들이 모여서 사이트를 완성
+        
+        div는 대표적인 block 태그 중 하나다
+        block 태그는 줄바꿈이 들어가는 특징이 있다 (세로로 배치됨) 
+        block 태그 종류: div, p, h1~h6
+
+        줄바꿈없이 한 줄에 나열되는 태그를 inline 태그라고 한다 (가로로 배치됨, 실무에선 사용하지 않음)
+     -->
+     
+     <!-- 클래스는 변수명이라고 생각하자 -->
+    <div class="box01">
+        <!-- 클래스란 CSS 선택자 중 하나이며, 실무에서 가장 많이 사용하는 CSS 선택자 방법이다
+             CSS란 Style Sheet Language라고 부르며, CSS를 이용해 HTML 디자인 작업을 할 수 있다 -->
+        박스 1번
+        <!-- h2 태그는 현재 box01 이라는 클래스 이름을 가진 div 안에 있음
+             div.box01은 h2의 부모 태그가 되고, h2는 div.box01의 자식 태그가 된다 -->
+        <h2>안녕하세요</h2>
+    </div> 
+    <div class="box02">
+        박스 2번 
+        <h2>안녕하세요</h2>
+    </div>
+    <div class="box03">
+        박스 3번
+        <h2>안녕하세요999</h2>
+    </div> 
+</body>
+</html>

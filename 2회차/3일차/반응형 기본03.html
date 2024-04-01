@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        
+        .container{
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* flex-wrap: container의 크기가 변하면, item들의 위치가 container에 맞게 조절된다 */
+            /* 반응형에서는 'flex-wrap'를 잘 사용하지 않는다 */
+            /*flex-wrap: wrap;*/
+            padding: 40px 80px;
+        }
+        .item{
+            width: 180px;
+            text-align: center;
+            border: 1px solid #cce7d0;
+            margin: 15px 0;
+            padding: 25px 15px;
+            box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+            border-radius: 4px;
+        }
+        .item h6{
+            color: #088178;
+            background-color: #fddde4;
+        }
+        
+        @media (max-width: 600px){
+            .container{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        아이템 레이아웃 반응형 포함해서 개발
+        쇼핑몰에서 자주 사용하는 레이아웃
+    -->
+    <div class="container">
+        <!-- (div.item>h6)*6 -->
+        <div class="item">
+            <h6>상품 1</h6>
+        </div>
+        <div class="item">
+            <h6>상품 2</h6>
+        </div>
+        <div class="item">
+            <h6>상품 3</h6>
+        </div>
+        <div class="item">
+            <h6>상품 4</h6>
+        </div>
+        <div class="item">
+            <h6>상품 5</h6>
+        </div>
+        <div class="item">
+            <h6>상품 6</h6>
+        </div>
+    </div>
+</body>
+</html>

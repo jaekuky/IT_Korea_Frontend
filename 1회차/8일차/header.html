@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .header {
+        width: 1180px;
+        height: 80px;
+        background-color: #5865f2;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .icon-img {
+        width: 124px;
+        height: 24px;
+      }
+      .icon-img img {
+        width: 100%;
+        height: 100%;
+        /* object-fit: 이미지 선명하게 */
+        object-fit: cover;
+      }
+      .btn a {
+        color: #23272a;
+        background-color: #fff;
+        border-radius: 40px;
+        padding: 7px 16px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 24px;
+      }
+      ul {
+        display: flex;
+      }
+      ul li {
+        list-style: none;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="icon">
+        <div class="icon-img">
+          <!-- 실무에서 이미지 태그는 div안에 입력한다 -->
+          <img src="icon.svg" alt="" />
+        </div>
+      </div>
+      <div class="nav">
+        <ul>
+          <li><a href="https://discord.com/download">다운로드</a></li>
+          <li><a href="https://discord.com/nitro">Nitro</a></li>
+          <li><a href="https://discord.com/servers">길찾기</a></li>
+          <li><a href="https://discord.com/safety">보안센터</a></li>
+          <li><a href="https://discord.com/hc">지원</a></li>
+          <li><a href="https://discord.com/blog">블로그</a></li>
+          <li><a href="https://discord.com/careers">인재채용</a></li>
+        </ul>
+      </div>
+      <!-- btn: button -->
+      <div class="btn">
+        <a href="https://discord.com/channels/@me">Discord 열기</a>
+      </div>
+    </div>
+  </body>
+</html>

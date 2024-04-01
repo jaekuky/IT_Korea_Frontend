@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응형 헤더만들기</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      .header {
+        border: 1px solid black;
+        height: 80px;
+        background-color: #11101b;
+        padding: 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .logo {
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      .nav-bar ul {
+        display: flex;
+      }
+      .nav-bar ul li a {
+        color: white;
+        font-size: 20px;
+        padding: 10px 25px;
+      }
+      .nav-bar ul li a:hover {
+        background-color: #fff;
+        color: #11101b;
+        border-radius: 50px;
+      }
+      .nav-bar.active {
+        height: 300px;
+      }
+      .nav-bar.active ul {
+        opacity: 1;
+      }
+
+      @media screen and (max-width: 900px) {
+        .hamburger {
+          display: block;
+          cursor: pointer;
+        }
+        .line {
+          width: 30px;
+          height: 3px;
+          background-color: white;
+          margin: 6px 0;
+        }
+        .nav-bar {
+          position: absolute;
+          top: 80px;
+          left: 0;
+          right: 0;
+          width: 100vw;
+          background-color: #11101b;
+          border: 1px solid red;
+          height: 0;
+          transition: 0.4s;
+        }
+        .nav-bar ul {
+          border: 1px solid purple;
+          flex-direction: column;
+          margin-top: 30px;
+          text-align: center;
+          transition: 0.5s;
+          /* 
+            opacity: 투명도
+            0: 투명, 1: 불투명              
+          */
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">Ryu Jae-kuk</div>
+      <div class="hamburger" onclick="openMenu()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="nav-bar">
+        <ul>
+          <li><a href="">MENU1</a></li>
+          <li><a href="">MENU2</a></li>
+          <li><a href="">MENU3</a></li>
+          <li><a href="">MENU4</a></li>
+          <li><a href="">MENU5</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <!-- script: javascript라는 언어를 코딩할 수 있음 -->
+  <script>
+    function openMenu() {
+      //alert("클릭됨");
+      // .nav-bar이름을 가진 HTML 태그를 가져온다
+      let navbar = document.querySelector(".nav-bar");
+
+      // .nav-bar에 active라는 클래스를 추가할 예정
+      // 근데, active라는 클래스가 이미 있으면 제거하고, 없으면 추가한다
+      navbar.classList.toggle("active");
+    }
+  </script>
+</html>
