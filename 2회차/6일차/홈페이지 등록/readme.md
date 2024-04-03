@@ -46,4 +46,18 @@
     3. '사이트 등록'에 내 홈페이지 주소 입력하고, 맨 우측에 있는 아이콘 클릭 
     4. '사이트 소유확인' -> 'HTML 태그' 복사
     5. 내 홈페이지 'index.html'의 <title>태그 위에 복사한 <meta> 태그 붙여넣기
-    6. 내 홈페이지 'index.html'의 header 태그
+    6. 내 홈페이지 'index.html'의 head 태그에 다음 <meta> 태그 추가
+        <meta
+        name="keyword"
+        content="HTML, 코딩, 대전코딩, 코딩배우기, 둔산동 코딩"
+        />
+        <meta property="og:site_name" content="아이티코리아코딩" />
+        <meta property="og:title" content="아이티코리아 류재국" />
+        <meta property="og:description" content="HTML코딩, 대전코딩, 코딩배우기" />
+        <meta property="og:locale" content="ko_KR" />
+        <meta name="NaverBot" content="All" />
+        <meta name="NaverBot" content="index,follow" />
+        <meta name="Yeti" content="All" />
+        <meta name="Yeti" content="index,follow" />
+    7. 수정된 'index.html' 파일을 AWS에 업로드
+    8. AWS에 'robot.txt', 'sitemap.xml' 업로드

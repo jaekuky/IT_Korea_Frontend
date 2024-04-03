@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .form-box {
+        margin: 10px auto;
+        border: 1px solid black;
+      }
+
+      button {
+        cursor: pointer;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="form-box">
+      <label for="name">이름</label>
+      <input id="name" type="text" value="홍길동" />
+
+      <label for="hobby">취미</label>
+      <input id="hobby" type="text" value="독서" />
+
+      <!-- select -->
+      <select name="" id="menu">
+        <option value="americano">아메리카노</option>
+        <option value="caferatte">까페라떼</option>
+        <option value="cafemoca">까페모카</option>
+        <option value="icetea">아이스티</option>
+      </select>
+
+      <!-- 
+           버튼 
+           onclick: 클릭했을 때 이벤트 발생
+      -->
+      <button onclick="clickButtonEvent()">내용확인하기</button>
+    </div>
+  </body>
+
+  <script>
+    // script를 이용해서 input value 가져오기
+
+    // 함수 만들기
+    function clickButtonEvent() {
+      var name = document.getElementById("name").value;
+      var hobby = document.getElementById("hobby").value;
+      var selectedMenu = document.getElementById("menu").value;
+      alert(
+        "이름: " + name + ", 취미: " + hobby + ", 선택한 메뉴: " + selectedMenu
+      );
+    }
+  </script>
+</html>

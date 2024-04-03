@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .form-box {
+        margin: 10px auto;
+        border: 1px solid black;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="form-box">
+      <label for="name">이름</label>
+      <input id="name" type="text" value="홍길동" />
+
+      <label for="hobby">취미</label>
+      <input id="hobby" type="text" value="독서" />
+
+      <!-- select -->
+      <select name="" id="menu">
+        <option value="americano">아메리카노</option>
+        <option value="caferatte">까페라떼</option>
+        <option value="cafemoca">까페모카</option>
+        <option value="icetea">아이스티</option>
+      </select>
+      <!-- 
+            radio 버튼 
+            radio: input 타입을 radio로 변경
+            name은 동일해야 한다
+      -->
+      <div>
+        <label for="r">SIZE : R</label>
+        <input type="radio" id="r" name="size" value="R" checked />
+      </div>
+      <div>
+        <label for="l">SIZE : L</label>
+        <input type="radio" id="l" name="size" value="L" />
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // script를 이용해서 input value 가져오기
+    var name = document.getElementById("name").value;
+    console.log("너의 이름은? :" + name);
+    var hobby = document.getElementById("hobby").value;
+    console.log("취미가 뭐야? :" + hobby);
+
+    // select값 가져오기
+    var selectedMenu = document.getElementById("menu").value;
+    console.log("선택한 메뉴는? :" + selectedMenu + "입니다.");
+
+    // 특정 라디오 값 가져오기
+    var radioValue = document.getElementById("r").value;
+    console.log("선택한 사이즈는? :" + radioValue + "입니다.");
+  </script>
+</html>

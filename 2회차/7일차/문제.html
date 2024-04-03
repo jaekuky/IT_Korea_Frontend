@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        margin: 10px auto;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box">A 박스</div>
+    <div class="box">B 박스</div>
+    <div class="box">C 박스</div>
+  </body>
+
+  <script>
+    /*
+        1. A 박스의 width, height값을 300px로 변경해보세요
+        2. B 박스의 배경색을 초록색으로 변경해보세요
+        3. C 박스의 top margin을 50px로 변경해보세요
+    */
+    box1 = document.getElementsByClassName("box")[0];
+    box1.style.width = "300px";
+    box1.style.height = "300px";
+
+    box2 = document.getElementsByClassName("box")[1];
+    box2.style.backgroundColor = "green";
+
+    box3 = document.getElementsByClassName("box")[2];
+    box3.style.marginTop = "50px";
+  </script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .join-box {
+        width: 400px;
+        height: 250px;
+        padding: 30px 50px;
+        margin: 10px auto;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      button {
+        cursor: pointer;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="join-box">
+      <h2>사칙연산</h2>
+      <label for="studentA">A 학생점수</label>
+      <input id="studentA" type="text" value="100" readonly />
+      <label for="studentB">B 학생점수</label>
+      <input id="studentB" type="text" value="80" readonly />
+      <label for="studentC">C 학생점수</label>
+      <input id="studentC" type="text" value="90" readonly />
+
+      <div>
+        <button onclick="join()">결과 확인</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function join() {
+      // 1. A~C 학생 점수 총합 구하기
+      // Number(): 문자열을 숫자로 변환
+      var studentA = Number(document.getElementById("studentA").value);
+      var studentB = Number(document.getElementById("studentB").value);
+      var studentC = Number(document.getElementById("studentC").value);
+      var sum = studentA + studentB + studentC;
+      // 2. A~C 학생 점수 평균 구하기
+      var avg = sum / 3;
+
+      console.log("A~C 학생 점수 총합: " + sum);
+      console.log("A~C 학생 점수 평균: " + avg);
+    }
+  </script>
+</html>

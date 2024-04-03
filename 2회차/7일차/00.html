@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- style 태그 (css), html을 예쁘게 꾸며줌 -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        스크립트 태그 
+        여기서, javascript를 사용해서 코딩을 할 수 있음
+    -->
+    <script>
+      /*
+        프로그래밍 시작 (기초부터 천천히)
+        컴퓨터적 사고력 증진
+        
+        오늘부터 공부 방법
+        1. javascript -> 70 %
+        2. css -> 20 %
+        3. html -> 10 %
+        javascript가 탄탄해야 react.js를 공부할 수 있음
+
+        react.js
+        1. 메타에서 개발
+        2. 인스타그램, 페이스북, 트위터에서 대표적으로 사용하는 언어
+        
+        what is javascript?
+        1. 95년도에 나온 프로그램 언어
+        2. java와 javascript는 다른 언어
+        3. javascript를 이용해서 html(DOM)을 컨트롤 할 수 있음
+        4. javascript로 동적인 웹 구현이 가능
+        5. javascript는 전세계에서 사랑받는 언어 TOP 5
+        6. javascript로 프론트, 백엔드 구현이 가능
+      */
+      /*
+        1. var: variable의 앞 3글자만 따온 것. 즉, ****변수를 의미함****
+            변수: 변하는 수
+        2. name: 변수명
+      */
+      // 변수 사용
+      var name = "홍길동";
+      console.log("1. name : " + name); // 변수를 출력하는 방법
+
+      var number = 100;
+      console.log("2. 숫자는? : " + number); // console창에 출력하는 방법
+
+      // 변수 재활용 하기
+      var pizzaName = "치즈피자"; // pizzaName 변수 생성 또는 선언
+      console.log("3. 오늘의 피자는? : " + pizzaName);
+
+      pizzaName = "콤보피자"; // 변수의 값 덮어쓰기
+      console.log("4. 오늘의 피자는? : " + pizzaName);
+
+      // 변수 사칙연산
+      var x = 10; // x라는 변수를 선언
+      var y = 20; // y라는 변수를 선언
+      var result = 0; // result라는 변수를 선언
+      result = x + y; // x + y의 값을 result에 대입, result 변수 재활용
+      console.log("5. x 더하기 y는 ? : " + result); // result를 출력
+
+      var a1 = 5;
+      var a2 = 5;
+      var a3 = a1 * a2;
+      console.log("6. a3 결과는 ? : " + a3);
+
+      var studentA = 50; // 학생 A의 점수
+      var studentB = 80; // 학생 B의 점수
+      var studentC = 100; // 학생 C의 점수
+      var studentD = 70; // 학생 D의 점수
+      // 총합 구하기
+      var sum = studentA + studentB + studentC + studentD; // 학생들의 점수 합
+      console.log("7. 학생 A~D의 점수 총합은? : " + sum); // 학생들의 점수 합 출력
+      // 평균 구하기
+      console.log("8. 학생 A~D의 점수 평균은? : " + sum / 4); // 학생들의 점수 평균 출력
+
+      // 문자 + 문자
+      var word1 = "김치";
+      var word2 = "매워요";
+      var message = word1 + word2; // 문자를 더하면, 문자가 합쳐짐
+      console.log("9. 메세지는? : " + message);
+
+      // 변수활용, 응용
+      var p = 20;
+      console.log("10. p의 현재 값? : " + p);
+      p = 10;
+      console.log("11. p의 현재 값? : " + p);
+      p = p * 2;
+      console.log("12. p의 현재 값? : " + p);
+
+      // Quiz 1번
+      // 몇 년생인지 구하기
+      var age = 32; // 나이
+      var year = 2024; // 현재 년도
+      var answer = year - age + 1; // 현재 년도 - 나이
+      console.log("13. 홍길동의 출생년도는? : " + answer);
+    </script>
+  </body>
+</html>
