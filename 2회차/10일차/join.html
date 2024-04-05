@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>네이버 회원가입 폼</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="member">
+      <!-- 1. 로고 -->
+      <h2 class="title">NAVER</h2>
+
+      <!-- 2. 필드 -->
+      <div class="field">
+        <b>아이디</b>
+        <span class="placehold-text"><input id="userId" type="text" /></span>
+      </div>
+      <div class="field">
+        <b>비밀번호</b>
+        <input id="userpw" class="userpw" type="password" />
+      </div>
+      <div class="field">
+        <b>비밀번호 재확인</b>
+        <input id="userpwConfirm" class="userpw-confirm" type="password" />
+      </div>
+      <div class="field">
+        <b>이름</b>
+        <input id="userName" type="text" />
+      </div>
+
+      <!-- 3. 필드(생년월일) -->
+      <div class="field birth">
+        <b>생년월일</b>
+        <div>
+          <input id="birthYear" type="number" placeholder="년(4자)" />
+          <select id="birthMonth">
+            <option value="0">월</option>
+            <option value="1">1월</option>
+            <option value="2">2월</option>
+            <option value="3">3월</option>
+            <option value="4">4월</option>
+            <option value="5">5월</option>
+            <option value="6">6월</option>
+            <option value="7">7월</option>
+            <option value="8">8월</option>
+            <option value="9">9월</option>
+            <option value="10">10월</option>
+            <option value="11">11월</option>
+            <option value="12">12월</option>
+          </select>
+          <input id="birthDay" type="number" placeholder="일" />
+        </div>
+      </div>
+
+      <!-- 4. 필드(성별) -->
+      <div class="field gender">
+        <b>성별</b>
+        <div>
+          <label><input type="radio" name="gender" value="남자" />남자</label>
+          <label><input type="radio" name="gender" value="여자" />여자</label>
+          <label
+            ><input
+              type="radio"
+              name="gender"
+              value="선택안함"
+            />선택안함</label
+          >
+        </div>
+      </div>
+
+      <!-- 5. 이메일_전화번호 -->
+      <div class="field">
+        <b>본인 확인 이메일<small>(선택)</small></b>
+        <input id="userEmail" type="email" placeholder="선택입력" />
+      </div>
+
+      <div class="field tel-number">
+        <b>휴대전화</b>
+        <select id="koreaPhone">
+          <option value="82">대한민국 +82</option>
+        </select>
+        <div>
+          <input id="userPhone" type="tel" placeholder="전화번호 입력" />
+          <input type="button" value="인증번호 받기" />
+        </div>
+        <input id="auth" type="number" placeholder="인증번호를 입력하세요" />
+      </div>
+
+      <!-- 6. 가입하기 버튼 -->
+      <input type="submit" value="가입하기" onclick="join()" />
+
+      <!-- 7. 푸터 -->
+      <div class="member-footer">
+        <div>
+          <a href="#none">이용약관</a>
+          <a href="#none">개인정보처리방침</a>
+          <a href="#none">책임의 한계와 법적고지</a>
+          <a href="#none">회원정보 고객센터</a>
+        </div>
+        <span><a href="#none">NAVER Corp.</a></span>
+      </div>
+    </div>
+  </body>
+  <script>
+    function join() {
+      // 사용자가 입력한 각 필드의 값을 가져와서 console에 출력
+      var userId = document.getElementById("userId").value;
+      var userPw = document.getElementById("userpw").value;
+      var userPwConfirm = document.getElementById("userpwConfirm").value;
+      var userName = document.getElementById("userName").value;
+      var birthYear = document.getElementById("birthYear").value;
+      var birthMonth = document.getElementById("birthMonth").value;
+      var birthDay = document.getElementById("birthDay").value;
+      var gender = document.querySelector("input[name=gender]:checked").value;
+      var userEmail = document.getElementById("userEmail").value;
+      var userPhone = document.getElementById("userPhone").value;
+      console.log(
+        "ID : " +
+          userId +
+          ",\n" +
+          "Password : " +
+          userPw +
+          ",\n" +
+          "Password 확인 : " +
+          userPwConfirm +
+          ",\n" +
+          "사용자 이름 : " +
+          userName +
+          ",\n" +
+          "생년 : " +
+          birthYear +
+          ",\n" +
+          "월 : " +
+          birthMonth +
+          ",\n" +
+          "일 : " +
+          birthDay +
+          ",\n" +
+          "성별 : " +
+          gender +
+          ",\n" +
+          "이메일 : " +
+          userEmail +
+          ",\n" +
+          "전화번호 : " +
+          userPhone
+      );
+      confirm("가입하시겠습니까?");
+    }
+  </script>
+</html>

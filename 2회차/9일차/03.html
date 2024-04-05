@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        padding: 10px;
+        width: 1200px;
+        height: 300px;
+        background: rgba(232, 232, 232, 0.5);
+        margin: 50px auto;
+      }
+      .container h2 {
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+      }
+      .item {
+        flex-basis: 40%;
+        background-color: #fff;
+        padding: 1%;
+      }
+      .item p {
+        margin-bottom: 10px;
+      }
+      label {
+        font-size: 20px;
+      }
+      .order-wrapper {
+        margin-top: 50px;
+        text-align: center;
+      }
+      button {
+        width: 10%;
+        cursor: pointer;
+        background: transparent;
+        outline: none;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        padding: 2%;
+        font-size: 24px;
+        color: #fff;
+      }
+      #btn-order {
+        background-color: #4e73df;
+        margin-right: 20px;
+      }
+      #btn-clear {
+        background-color: #e74a3b;
+      }
+      select {
+        width: 50%;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>프리미엄 미용실</h2>
+      <div class="row">
+        <div class="item">
+          <p>원하시는 스타일을 선택하시오.</p>
+          <label for="perm">펌</label>
+          <!-- 
+            name, class 이름은 중복이 가능하다. 
+            id는 중복이 불가능하다.
+          -->
+          <input type="radio" name="info" id="perm" value="펌" />
+          <label for="cut">커트</label>
+          <input type="radio" name="info" id="cut" value="커트" checked />
+          <label for="dyed">염색</label>
+          <input type="radio" name="info" id="dyed" value="염색" />
+        </div>
+        <div class="item">
+          <select id="appointment">
+            <option value="">-- 예약시간 선택 --</option>
+            <option value="first">11:00 ~ 11:30</option>
+            <option value="second">11:30 ~ 12:00</option>
+            <option value="third">12:00 ~ 12:30</option>
+            <option value="last">12:30 ~ 13:00</option>
+          </select>
+        </div>
+      </div>
+      <div class="order-wrapper">
+        <button id="btn-order" type="button" onclick="book()">예약</button>
+        <button id="btn-clear" type="button">취소</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function book() {
+      // 1. 체크한 스타일 출력하기
+      // 선택한 라디오 버튼의 value값을 가져온다.
+      var option = document.querySelector("input[name=info]:checked").value;
+      console.log("고객님이 선택한 스타일은 " + option);
+
+      // 2. 예약시간 출력하기
+      // querySelector: id, class 모두 찾아준다.
+      var selectedTime = document.querySelector(
+        "#appointment > option:checked"
+      ).value;
+      // select box에 있는 option의 value값을 가져온다.
+      console.log("고객님이 선택한 시간은 " + selectedTime);
+
+      // 시간이 선택되지 않았을 때
+      if (selectedTime == "") {
+        alert("예약시간을 선택해주세요.");
+        return;
+      }
+
+      // confirm: 확인 버튼과 취소 버튼이 있는 팝업창을 띄운다.
+      // 확인 버튼을 누르면 true, 취소 버튼을 누르면 false를 반환한다.
+      var isResult = confirm(
+        "홍길동 고객님, " + selectedTime + "에 예약하시겠습니까?"
+      );
+      console.log("예약 결과 : " + isResult);
+
+      if (isResult) {
+        // 예약한 시간이 없어져야 함, 동일한 시간에 다른 사람이 예약할 수 없어야 함
+        document.querySelector("#appointment > option:checked").remove();
+      }
+    }
+  </script>
+</html>

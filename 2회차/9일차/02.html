@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .join-box {
+        border: 1px solid #ececec;
+        padding: 5px;
+        width: 500px;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .join-box > div {
+        padding: 1%;
+        margin-top: 10px;
+        border: 1px solid black;
+      }
+      .join-box input {
+        width: 50%;
+        padding: 5px;
+      }
+      .join-box button {
+        width: 100%;
+        background-color: azure;
+        padding: 5px;
+        cursor: pointer;
+      }
+      .active {
+        cursor: not-allowed;
+        background-color: #ececec;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="join-box">
+      <h2>콜라츠 추측</h2>
+      <div>
+        <h3>설명</h3>
+        <p>1937년 Collatz란 사람에 의해 제기된 이 추측은, 주어진 수가 1이 될 때까지 다음 작업을 반복하면, 모든 수를 1로 만들 수 있다는 추측입니다. 작업은 다음과 같습니다.</p>
+        </br>
+        <p>
+          예를 들어, 주어진 수가 6이라면 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1 이 되어 총 8번 만에 1이 됩니다. 위 작업을 몇 번이나 반복해야 하는지 반환하는 함수, solution을 완성해 주세요. 단, 주어진
+          수가 1인 경우에는 0을, 작업을 500번 반복할 때까지 1이 되지 않는다면 –1을 반환해 주세요.
+        </p>
+      </div>
+      <div>
+        <label for="num">주어진 수 : </label>
+        <input id="num" type="number" value="16" disabled/>
+      </div>
+      <div>
+        <label for="result">결과 : </label>
+        <input id="result" type="number" placeholder="정답은 4..."/>
+      </div>
+      <div>
+        <button onclick="doCheck()">결과확인</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function doCheck() {
+      // 결과확인 버튼을 눌렀을 때 결과 input 창에 정답이 나올 수 있게 로직을 아래 구현하시오.
+      /* HINT 🎁
+        While문 이용할 것
+
+        1-1. 입력된 수가 짝수라면 2로 나눕니다. 
+        1-2. 입력된 수가 홀수라면 3을 곱하고 1을 더합니다. 
+        2. 결과로 나온 수에 같은 작업을 1이 될 때까지 반복합니다. 
+
+        총 몇 번만에 1이 되었는지 정답 input에 입력하기
+      */
+      var num = document.getElementById("num").value;
+      var result = document.getElementById("result");
+      count = 0
+      if(num == 1){
+          result.value = count;
+          return;
+      }else{
+        while(num != 1){
+            if(num % 2 == 0){
+                num = num / 2;
+            }else{
+                num = num * 3 + 1;
+            }
+            
+            count++;
+            if(count >= 500){
+                count = -1;
+                break;
+            }
+        }
+      }
+      result.value = count;
+    }
+  </script>
+</html>
