@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        margin: 50px auto;
+        width: 1400px;
+        height: auto;
+        background: rgba(232, 232, 232, 0.5);
+        padding: 1%;
+      }
+      .row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 40%;
+        transition: 0.3s;
+      }
+      h2 {
+        text-align: center;
+      }
+      .col {
+        font-size: 24px;
+        padding: 5%;
+        border: 1px solid #36b9cc;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .col:hover {
+        cursor: pointer;
+        background-color: #36b9cc;
+        color: #fff;
+      }
+      .order-wrapper {
+        text-align: center;
+      }
+      button {
+        width: 10%;
+        cursor: pointer;
+        background: transparent;
+        outline: none;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        padding: 2%;
+        font-size: 24px;
+        color: #fff;
+      }
+      #btn-order {
+        background-color: #4e73df;
+        margin-right: 20px;
+      }
+      #btn-clear {
+        background-color: #e74a3b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="item"><h2>메뉴</h2></div>
+        <div class="item"><h2>장바구니</h2></div>
+      </div>
+      <div class="row">
+        <div class="item">
+          <!-- this: 현재 어떤 태그인지, 자기 자신을 의미 (자바스크립트에서는 클릭한 요소를 의미)  -->
+          <div id="menu-1" class="col" onclick="selectMenu(this)">냉동삼겹살</div>
+          <div id="menu-2" class="col" onclick="selectMenu(this)">컵라면</div>
+          <div id="menu-3" class="col" onclick="selectMenu(this)">연어샐러드</div>
+          <div id="menu-4" class="col" onclick="selectMenu(this)">냉동볶음밥</div>
+          <div id="menu-5" class="col" onclick="selectMenu(this)">냉동만두</div>
+        </div>
+        <!-- 장바구니 div -->
+        <div id="myMenu" class="item">
+
+        </div>
+      </div>
+      <div class="order-wrapper">
+        <button id="btn-order" type="button" onclick="order()">주문</button>
+        <button id="btn-clear" type="button" onclick="orderCancle()">취소</button>
+      </div>
+    </div>
+    <script>
+        // onclick: 클릭했을때, 일어나는 이벤트
+        // 1. 이벤트 만들기
+        // 메뉴 선택 이벤트
+        // this: 자기 자신
+        function selectMenu(element){
+            console.log(element); // 클릭한 요소(html) 출력
+            // outerHTML, innerHTML 배우기
+            console.log(element.outerHTML); // outerHTML: 태그 전체가 나옴
+            console.log(element.innerHTML); // innerHTML: 태그 안에 있는 요소들이 나옴
+
+            // document == HTML
+            // getElementById: id로 접근
+            // getElementByClassName: class 이름으로 접근
+            // getElementByName: name으로 접근
+            // querySelector는 getElementById, getElementByClassName, getElementByName를 다 포함함
+            // ID는 #, Class는 .
+            //document.querySelector('#myMenu').innerHTML = element.outerHTML; // myMenu(장바구니)에 outerHTML 대입
+            // 위 로직을 수정해서 선택한 메뉴가 모두 나오게 할 것 (힌트: 사칙연산)
+            document.querySelector('#myMenu').innerHTML += element.outerHTML; // myMenu(장바구니)에 outerHTML 대입
+
+            // 선택한 메뉴를 안 보이게 할 것
+            // 1. 마우스로 클릭한 메뉴 ID 가져오기 (ID)
+            var selectedMemuId = element.id; // ID 가져오기
+            console.log('선택한 메뉴 ID는? ' + selectedMemuId);
+            document.querySelector('#' + selectedMemuId).style.display = 'none'; // 안보이게 하기
+
+        }
+        // 주문 이벤트
+        function order(){
+            var len = document.querySelector('#myMenu').children.length; // myMenu의 자식 태그 개수 가져오기
+            console.log('총 선택한 메뉴 수? ' + len);
+
+        }
+        // 주문 취소 이벤트
+        function orderCancle(){
+            // 취소 버튼 눌렀을 때, 강제로 새로고침 하기
+            location.reload(); // 새로 고침 하기
+
+        }
+    </script>
+  </body>
+</html>

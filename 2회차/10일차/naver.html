@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>네이버 회원가입 폼</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="member">
+      <!-- 1. 로고 -->
+      <h2 class="title">TITLE</h2>
+
+      <!-- 2. 필드 -->
+      <div class="field">
+        <b>아이디</b>
+        <span class="placehold-text"><input id="userId" type="text" /></span>
+      </div>
+      <div class="field">
+        <b>비밀번호</b>
+        <input id="userpw" class="userpw" type="password" />
+      </div>
+      <div class="field">
+        <b>비밀번호 재확인</b>
+        <input id="userpwConfirm" class="userpw-confirm" type="password" />
+      </div>
+      <div class="field">
+        <b>이름</b>
+        <input id="userName" type="text" />
+      </div>
+
+      <!-- 3. 필드(생년월일) -->
+      <div class="field birth">
+        <b>생년월일</b>
+        <div>
+          <input id="birthYear" type="number" placeholder="년(4자)" />
+          <select id="birthMonth">
+            <option value="0">월</option>
+            <option value="1">1월</option>
+            <option value="2">2월</option>
+            <option value="3">3월</option>
+            <option value="4">4월</option>
+            <option value="5">5월</option>
+            <option value="6">6월</option>
+            <option value="7">7월</option>
+            <option value="8">8월</option>
+            <option value="9">9월</option>
+            <option value="10">10월</option>
+            <option value="11">11월</option>
+            <option value="12">12월</option>
+          </select>
+          <input id="birthDay" type="number" placeholder="일" />
+        </div>
+      </div>
+
+      <!-- 4. 필드(성별) -->
+      <div class="field gender">
+        <b>성별</b>
+        <div>
+          <label><input type="radio" name="gender" value="남자" />남자</label>
+          <label><input type="radio" name="gender" value="여자" />여자</label>
+          <label><input type="radio" name="gender" value="선택안함" />선택안함</label>
+        </div>
+      </div>
+
+      <!-- 5. 이메일_전화번호 -->
+      <div class="field">
+        <b>본인 확인 이메일<small>(선택)</small></b>
+        <input id="userEmail" type="email" placeholder="선택입력" />
+      </div>
+
+      <div class="field tel-number">
+        <b>휴대전화</b>
+        <select id="koreaPhone">
+          <option value="82">대한민국 +82</option>
+        </select>
+        <div>
+          <input id="userPhone" type="tel" placeholder="전화번호 입력" />
+          <input type="button" value="인증번호 받기" />
+        </div>
+        <input id="auth" type="text" placeholder="인증번호를 입력하세요" />
+      </div>
+
+      <!-- 6. 가입하기 버튼 -->
+      <input type="submit" value="가입하기" onclick="join()" />
+
+      <!-- 7. 푸터 -->
+      <div class="member-footer">
+        <div>
+          <a href="#none">이용약관</a>
+          <a href="#none">개인정보처리방침</a>
+          <a href="#none">책임의 한계와 법적고지</a>
+          <a href="#none">회원정보 고객센터</a>
+        </div>
+        <span><a href="#none">NAVER Corp.</a></span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 가입하기 이벤트 생성
+    function join(){
+        // 1. 아이디 값 가져오기
+        var userId = document.querySelector('#userId').value;
+        console.log('유저아이디 : ' + userId);
+
+        // 2. 아이디는 영어만 입력할 수 있게 하기 (한글 금지)
+        // 정규표현식
+        /*
+          ^: 문자열 시작
+          [a-z|A-Z]: 범위 대상
+          +: 문자가 1개 이상이다
+          $: 문자열 끝
+        */
+        var justEnglish = /^[a-z|A-Z]+$/;
+        var idResult = justEnglish.test(userId); // 영어가 맞으면 true, 아니면 false를 반환
+        console.log('idResult: ' + idResult);
+        if(!idResult){
+            alert('아이디는 영어로 입력해 주세요.');
+            return false; // 아래 코드를 실행하지 않게, return으로 막아주자
+        }
+
+        // 3. 비밀번호 가져오기
+        var userPassword = document.querySelector('#userpw').value;
+        console.log('비밀번호: ' + userPassword);
+        var userpwConfirm = document.querySelector('#userpwConfirm').value;
+        console.log('비밀번호 재입력: ' + userpwConfirm);
+        
+        // 비밀번호의 길이가 6자보다 작으면
+        if(userPassword.length < 6){
+            alert('비밀번호는 6자 이상 입력해 주세요.');
+            return false;
+        }
+
+        // 비밀번호와 재입력한 비밀번호가 다르면
+        if(userPassword != userpwConfirm){
+            alert('비밀번호가 일치하지 않습니다.');
+            return false;
+        }
+        
+        // 4. 이름 가져오기
+        var userName = document.querySelector('#userName').value;
+        // 이름은 한글만 입력할 수 있게 만들기
+        // 정규표현식 
+        var justKoreanLan = /^[ㄱ-ㅎ|가-히]+$/; // 한글만 입력할 수 있는 정규표현식
+        var nameResult = justKoreanLan.test(userName); // 정규표현식 테스트, 한글이면 true, 아니면 false
+        if(!nameResult){
+            alert('이름은 한글로 입력해 주세요.');
+            return false; // 아래 코드를 실행하지 않게, return으로 막아주자
+        }
+
+        // 5. 생년월일 가져오기
+        var birthYear = document.querySelector('#birthYear').value; // 년도 가져오기 
+        var birthMonth = document.querySelector('#birthMonth').value; // 월 가져오기 
+        var birthDay = document.querySelector('#birthDay').value; // 일 가져오기 
+
+        // 년도를 입력하지 않았으면
+        if(birthYear == ''){
+            alert('출생 년도를 입력해 주세요.');
+            return false;
+        }
+        // 출생 년도 길이가 4글자 보다 작거나 크면
+        if((birthYear.length < 4) || (birthYear.length > 4)){
+            alert('출생 년도는 4자리로 입력해 주세요.');
+            return false;
+        }
+
+        // 월을 입력하지 않았으면
+        if(birthMonth == '0'){
+            alert('출생 월을 입력해 주세요.');
+            return false;
+        }
+
+        // 일을 입력하지 않았으면
+        if(birthDay == ''){
+            alert('출생 일을 입력해 주세요.');
+            return false;
+        }
+
+        // 6. 전화번호 입력 시, 하이픈(-) 제거하기
+        var userPhone = document.querySelector('#userPhone').value; // 전화번호 가져오기
+        // replaceAll: '대체하다'라는 함수
+        // 왼쪽에 문자열 대상, 오른쪽에 바꾸고자 하는 문자열
+        userPhone = userPhone.replaceAll('-', '');
+        document.querySelector('#userPhone').value = userPhone; // 하이픈에 제거된 전화번호를 HTML에 표시
+
+
+        // 7. 인증번호에 숫자만 입력할 수 있게 하기
+        // 정규표현식 이용
+        var justNumber = /^[0-9]+$/; // 한글만 입력할 수 있는 정규표현식
+        var auth = document.querySelector('#auth').value; // 인증번호 가져오기
+        var numberResult = justNumber.test(auth); // 정규표현식 테스트, 숫자면 true, 아니면 false
+        if(!numberResult){
+            alert('인증번호는 숫자만 입력해 주세요.');
+            return false; // 아래 코드를 실행하지 않게, return으로 막아주자
+        }
+
+        // 모두 완료되었을 때, 아래 로직 실행
+        alert('회원가입이 되었습니다. 축하합니다.');
+    }
+
+  </script>
+</html>
