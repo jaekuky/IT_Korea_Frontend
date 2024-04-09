@@ -1,5 +1,5 @@
 /* Google web font CDN*/
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap");
 
 * {
   box-sizing: border-box; /*전체에 박스사이징*/
@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 14px;
   background-color: #f5f6f7;
   line-height: 1.5em;
@@ -46,7 +46,7 @@ a {
 }
 
 /*input 중 radio 는 width 가 100%면 안되니까 */
-.member input:not(input[type='radio']),
+.member input:not(input[type="radio"]),
 .member select {
   border: 1px solid #dadada;
   padding: 15px;
@@ -54,8 +54,8 @@ a {
   margin-bottom: 5px;
 }
 
-.member input[type='button'],
-.member input[type='submit'] {
+.member input[type="button"],
+.member input[type="submit"] {
   background-color: #2db400;
   color: #fff;
 }
@@ -94,17 +94,17 @@ a {
 }
 
 .placehold-text {
-  display: block; /*span 으로 감싸서 크기영역을 블록요소로 만들어ㅜ저야한다*/
+  display: block; /*span 으로 감싸서 크기영역을 블록요소로 만들어져야 한다*/
   position: relative;
   /* border: 1px solid #000; */
 }
 
 .placehold-text:before {
-  content: '@naver.com';
+  content: "@naver.com";
   position: absolute; /*before은 inline 요소이기 때문에 span으로 감싸줌 */
   right: 20px;
   top: 13px;
-  pointer-events: none; /*자체가 가지고 있는 pointer event 를 없애준다 */
+  pointer-events: none; /*자체가 가지고 있는 pointer event를 없애준다 */
 }
 
 .userpw {
@@ -131,7 +131,7 @@ a {
 }
 
 .member-footer div a:after {
-  content: '|';
+  content: "|";
   font-size: 10px;
   color: #bbb;
   margin-right: 5px;

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이달의 우수사원</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="section-input">
+        <div class="card-header">
+          <h6>우수사원 등록</h6>
+        </div>
+        <div class="input-wrapper">
+          <input id="rank" type="number" placeholder="랭킹을 입력하세요..." />
+          <input
+            id="name"
+            type="text"
+            maxlength="15"
+            placeholder="이름을 입력하세요..."
+          />
+          <input id="job" type="text" placeholder="직업을 입력하세요..." />
+          <input id="loc" type="text" placeholder="부서위치를 입력하세요..." />
+          <input
+            id="hiredate"
+            type="text"
+            placeholder="입사날짜를 입력하세요..."
+          />
+        </div>
+        <div class="btn-wrapper">
+          <button type="button" onclick="singup()">사원 등록</button>
+          <button type="button" onclick="reset()">초기화</button>
+        </div>
+      </div>
+      <div class="section-table">
+        <div class="card-header">
+          <h6>우수사원 목록</h6>
+        </div>
+        <div class="card-body">
+          <div class="table-wrapper">
+            <div class="row"></div>
+            <div class="row">
+              <div class="col">
+                <table>
+                  <thead>
+                    <tr role="row">
+                      <th>
+                        No <i id="asc" class="bx bx-up-arrow-alt"></i
+                        ><i id="desc" class="bx bx-down-arrow-alt"></i>
+                      </th>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Start date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="empData" onclick="removeEmployeeData(this)"></tr>
+                    <tr onclick="removeEmployeeData(this)">
+                      <td>5</td>
+                      <td>홍길동</td>
+                      <td>Senior Javascript Developer</td>
+                      <td>New York</td>
+                      <td>2015/11/28</td>
+                    </tr>
+                    <tr onclick="removeEmployeeData(this)">
+                      <td>7</td>
+                      <td>이지은</td>
+                      <td>Software Engineer</td>
+                      <td>San Francisco</td>
+                      <td>2020/06/15</td>
+                    </tr>
+                    <tr onclick="removeEmployeeData(this)">
+                      <td>1</td>
+                      <td>현상원</td>
+                      <td>Chief Executive Officer (CEO)</td>
+                      <td>San Francisco</td>
+                      <td>2022/01/01</td>
+                    </tr>
+                    <tr onclick="removeEmployeeData(this)">
+                      <td>2</td>
+                      <td>손흥민</td>
+                      <td>Junior Javascript Developer</td>
+                      <td>London</td>
+                      <td>2021/10/13</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Quiz. 사원 목록(행)을 클릭했을 때, 클릭한 사원 목록에서 제거할 것.
+      // hint. 새로운 함수를 생성해야 합니다.
+      // hint. this를 사용할 것
+      function removeEmployeeData(element) {
+        console.log(element); // 클릭한 요소 확인
+        console.log(element.style); // 클릭한 요소의 CSS 확인
+        element.style.display = "none"; // 클릭한 요소를 안 보이게 하기
+      }
+
+      // Quiz. 사원등록 버튼을 클릭했을 때, 랭킹 입력부터 입사날짜까지 빈 데이터 입력 시, '데이터를 입력해 주세요'라는 알람창을 띄우시오.
+      //사원 등록
+      function singup() {
+        var rank = document.querySelector("#rank").value;
+        var name = document.querySelector("#name").value;
+        var job = document.querySelector("#job").value;
+        var loc = document.querySelector("#loc").value;
+        var hiredate = document.querySelector("#hiredate").value;
+
+        if (rank == "") {
+          alert("데이터를 입력해 주세요");
+          return false;
+        }
+
+        if (name == "") {
+          alert("데이터를 입력해 주세요");
+          return false;
+        }
+
+        if (job == "") {
+          alert("데이터를 입력해 주세요");
+          return false;
+        }
+
+        if (loc == "") {
+          alert("데이터를 입력해 주세요");
+          return false;
+        }
+
+        if (hiredate == "") {
+          alert("데이터를 입력해 주세요");
+          return false;
+        }
+
+        // 2. 랭킹은 숫자만 입력할 수 있게 로직 구현하기 (정규표현식 사용)
+        var numReg = /^[0-9]+$/;
+        if (!numReg.test(rank)) {
+          alert("랭크는 숫자만 입력해 주세요");
+          return false;
+        }
+
+        /*
+            개발자가 힘들어야 고객이 편하다!!
+            1. '-'로 날짜를 받으면, '/'로 변경해주기
+            2. 특정 사원은 우수 사원에 등록할 수 없다.
+               array 배열 안에 있는 사원은 우수 사원에 등록할 수 없다.
+        */
+
+        // 1. '-'로 날짜를 받으면, '/'로 변경해주기
+        hiredate = hiredate.replaceAll("-", "/");
+        console.log("입사일: " + hiredate);
+
+        // 2. 특정 사원은 우수 사원에 등록할 수 없다.
+        // array 배열 안에 있는 사원은 우수 사원에 등록할 수 없다.
+        var banNameArray = ["이완용", "박제순", "이지용", "이근택", "권중현"];
+        var flag = true;
+        for (var i = 0; i < banNameArray.length; i++) {
+          if (name == banNameArray[i]) {
+            alert("우수사원에 등록할 수 없는 사원입니다.");
+            //return false; // 실무에서는 for문 안에서 return을 사용하지 않는다.
+            flag = false;
+          }
+        }
+
+        if (!flag) {
+          // 여기서 구현할 코드가 더 있다면 보완
+          return false;
+        }
+
+        // JavaScript로 HTML 구현이 가능함
+        // 문자열을 이용해 html 구현이 가능함
+        /*
+            형식
+            <tr>
+                <td>rank</td>
+                <td>name</td>
+                <td>job</td>
+                <td>loc</td>
+                <td>hiredate</td>
+            </tr>
+        */
+        /*
+            ex)
+            <tr>
+                <td>2</td>
+                <td>손흥민</td>
+                <td>Junior Javascript Developer</td>
+                <td>London</td>
+                <td>2021/10/13</td>
+            </tr>
+        */
+        var html =
+          "<tr><td>" +
+          rank +
+          "</td><td>" +
+          name +
+          "</td><td>" +
+          job +
+          "</td><td>" +
+          loc +
+          "</td><td>" +
+          hiredate +
+          "</td></tr>";
+        document.querySelector("#empData").innerHTML += html;
+      }
+
+      // 초기화 이벤트 함수
+      function reset() {
+        location.reload(); // 새로고침, 초기화 로직
+      }
+    </script>
+  </body>
+</html>

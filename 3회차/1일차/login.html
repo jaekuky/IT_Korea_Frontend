@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>상원컴퍼니 : 로그인</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>로그인</h1>
+      <div class="login-form">
+        <div class="txt-field">
+          <input id="userId" type="text" required />
+          <label>아이디</label>
+        </div>
+        <div class="txt-field">
+          <input id="userPassword" type="password" required />
+          <label>비밀번호</label>
+        </div>
+        <div class="pass">
+          <label for="login-status">로그인 상태 유지</label>
+          <input type="checkbox" id="login-status" value="stay" />
+        </div>
+        <!-- input 태그로 button을 구현할 수 있다 실무에서는 button 태그를 잘 쓰지 않는다 -->
+        <input
+          class="login-btn"
+          type="butten"
+          value="로그인"
+          onclick="login()"
+        />
+        <div class="signup-link">회원이 아닌가요? <a href="#">회원가입</a></div>
+      </div>
+    </div>
+    <script>
+      function login() {
+        // 아이디와 비밀번호를 출력해 보시오
+        var userId = document.querySelector("#userId").value;
+        console.log("아이디: " + userId);
+        var userPassword = document.querySelector("#userPassword").value;
+        console.log("비밀번호: " + userPassword);
+
+        // 공백 제거
+        userId = userId.trim(); // 문자열 앞뒤 공백 제거
+        console.log("아이디: " + userId);
+        userPassword = userPassword.trim(); // 문자열 앞뒤 공백 제거
+        console.log("비밀번호: " + userPassword);
+
+        // 대문자를 소문자로 강제 변환
+        /*
+            toLowerCase(): 대문자를 소문자로 변환
+            toUpperCase(): 소문자를 대문자로 변환
+        */
+        userId = userId.toLowerCase(); // 대문자를 소문자로 변환
+        userPassword = userPassword.toLowerCase(); // 대문자를 소문자로 변환
+
+        // 아이디, 비밀번호가 빈 값일 경우,
+        // 아이디 입력하시오!, 비밀번호 입력하시오! 경고창을 띄우시오
+        if (userId == "") {
+          alert("아이디를 입력하시오!");
+          return false;
+        }
+
+        if (userPassword == "") {
+          alert("비밀번호를 입력하시오!");
+          return false;
+        }
+
+        // 글자 수 제한
+        // ||: or 연산자
+        // &&: and 연산자
+        if (userId.length >= 20 || userPassword.length >= 20) {
+          alert("글자 수는 20글자 이하로 작성해주세요.");
+          return false;
+        }
+
+        // '로그인 상태 유지' 체크 여부 확인
+        // 체크되어 있으면 true, 체크되어 있지 않으면 false
+        var isChecked = document.querySelector("#login-status").checked;
+        console.log(isChecked);
+
+        if (isChecked) {
+          confirm("해당 브라우저에 로그인 정보를 저장하시겠습니까?");
+        }
+      }
+    </script>
+  </body>
+</html>
