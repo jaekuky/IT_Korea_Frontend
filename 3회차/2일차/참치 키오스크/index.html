@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상원참치</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .footer .active {
+        background-color: #ececec;
+        color: black;
+      }
+
+      .popup {
+        display: none;
+        border: 1px solid black;
+        width: 400px;
+        height: 200px;
+        background-color: yellow;
+        position: absolute;
+        top: 40%;
+        left: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .popup h2 {
+        text-align: center;
+        padding: 10px;
+        font-size: 20px;
+      }
+      .popup h4 {
+        text-align: center;
+        padding: 10px;
+        font-size: 15px;
+      }
+      .popup button {
+        width: 50px;
+        margin: 10px 10px 10px 340px;
+        padding: 5px 10px;
+        background-color: #ececec;
+        border: 1px solid black;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="banner"></div>
+        <div class="nav">
+          <ul>
+            <li>전체 메뉴</li>
+            <li>오늘의 메뉴</li>
+            <li>베스트 메뉴</li>
+          </ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="menu-wrapper">
+          <div class="menu">
+            <img src="image/img_con01.jpg" />
+            <div class="menu-info">
+              <h6>참다랑어 뱃살</h6>
+              <p>숙성 : <span>8일 숙성</span></p>
+              <p>가격 : <span>22,000</span></p>
+              <a onclick="selectMenu(22000)" href="javascript:void(0);">담기</a>
+            </div>
+          </div>
+          <div class="menu">
+            <img src="image/img_con02.jpg" />
+            <div class="menu-info">
+              <h6>참다랑어 뱃살</h6>
+              <p>숙성 : <span>2일 숙성</span></p>
+              <p>가격 : <span>10,000</span></p>
+              <a onclick="selectMenu(10000)" href="javascript:void(0);">담기</a>
+            </div>
+          </div>
+          <div class="menu">
+            <img src="image/img_con03.jpg" />
+            <div class="menu-info">
+              <h6>참다랑어 등살</h6>
+              <p>숙성 : <span>3일 숙성</span></p>
+              <p>가격 : <span>12,000</span></p>
+              <a onclick="selectMenu(12000)" href="javascript:void(0);">담기</a>
+            </div>
+          </div>
+          <div class="menu">
+            <img src="image/img_con04.jpg" />
+            <div class="menu-info">
+              <h6>참다랑어 뱃살</h6>
+              <p>숙성 : <span>5일 숙성</span></p>
+              <p>가격 : <span>16,000</span></p>
+              <a onclick="selectMenu(16000)" href="javascript:void(0);">담기</a>
+            </div>
+          </div>
+          <div class="menu">
+            <img src="image/img_con06.jpg" />
+            <div class="menu-info">
+              <h6>참다랑어 스페셜 세트</h6>
+              <p>숙성 : <span>5일 숙성</span></p>
+              <p>가격 : <span>32,000</span></p>
+              <a href="#" style="color: red" onclick="soldout()">품절</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="order">
+          <button type="button" id="order" onclick="orderMenu()">
+            결제하기
+          </button>
+          <p>총 주문 금액 : <span id="totalMoney">0</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="popup">
+      <h2>품절</h2>
+      <h4>해당 상품은 금일 품절되었습니다.</h4>
+      <button onclick="closePopup()">닫기</button>
+    </div>
+  </body>
+  <script>
+    // 숙제2. 품절 팝업창 띄우기
+    function soldout() {
+      //alert("해당 상품은 금일 품절 입니다.");
+      let popupElement = document.querySelector(".popup");
+      popupElement.style.display = "block";
+    }
+
+    function closePopup() {
+      let popupElement = document.querySelector(".popup");
+      popupElement.style.display = "none";
+    }
+
+    // 숙제3. 결제하기 버튼 클릭 시, '이번 달은 행사 기간 입니다.' 경고창 띄우기
+    function orderMenu() {
+      alert("이번 달은 행사 기간 입니다.");
+      // 총 주문 금액에는 5% 할인된 금액이 보여야 한다.
+      let totalMoney = Number(
+        document.querySelector("#totalMoney").innerHTML.replaceAll(",", "")
+      );
+      document.querySelector("#totalMoney").innerHTML = (
+        totalMoney -
+        totalMoney * 0.05
+      ).toLocaleString();
+    }
+
+    function selectMenu(money) {
+      // Number() 함수를 사용하여 문자열을 숫자로 변환
+      /*
+        document.querySelector("#totalMoney").innerHTML = (
+          Number(money) +
+          Number(document.querySelector("#totalMoney").innerHTML)
+        ).toLocaleString();*/ // toLocaleString: 1,000 단위 콤마 찍기
+      // 숙제 1. NaN 에러 해결하기 (Hint: 수업 시간에 배운 'replaceAll()' 함수 사용)
+      // 숙제 2. 'soldOut()' 눌렀을 때, 'alert'이 아닌 팝업창 (새로운 div) 띄우기 (Hint: css position absolute 사용)
+      //        - 단, 디자인은 심플하게 해도 상관 없음, 팝업창에 닫기 기능이 있어야 함
+      // 숙제 3. '결제하기' 버튼을 눌렀을 때, 'alert'으로 '이번 달은 행사 기간 입니다.' 띄우기
+      //        - 총 주문 금액에는 5% 할인된 금액이 보여야 한다.
+
+      // 숙제 1. NaN 에러 해결하기
+      document.querySelector("#totalMoney").innerHTML = (
+        Number(
+          document.querySelector("#totalMoney").innerHTML.replaceAll(",", "")
+        ) + Number(money)
+      ).toLocaleString();
+
+      // 문제1. 10만원 이상 구매 시, '1인 10만원 이상 구매할 수 없습니다.' 경고창 띄우기
+      let totalMoney = Number(
+        document.querySelector("#totalMoney").innerHTML.replaceAll(",", "")
+      );
+
+      if (totalMoney >= 100000) {
+        alert("1인 10만원 이상 구매할 수 없습니다.");
+        document.querySelector("#totalMoney").innerHTML = (
+          Number(totalMoney) - Number(money)
+        ).toLocaleString();
+
+        // 1. CSS 버튼 색상 변경
+        // active 클래스 추가
+        document.querySelector("#order").classList.add("active");
+        // 2. 버튼 설정 변경
+        // set: 세팅하다
+        // Attribute: 속성 값
+        document.querySelector("#order").setAttribute("disabled", true);
+
+        return false; // 함수 종료
+      }
+    }
+  </script>
+</html>

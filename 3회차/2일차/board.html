@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      .data {
+        width: 80vw;
+        border: 1px solid black;
+        margin: 10px auto;
+        padding: 3%;
+      }
+      tr:hover {
+        background-color: #ececec;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>A basic table</h2>
+    <table style="width: 100%">
+      <tr>
+        <th>Company</th>
+        <th>Contact</th>
+        <th>Country</th>
+      </tr>
+      <tr id="companyData" onclick="removeCompanyData(this)"></tr>
+      <tr onclick="removeCompanyData(this)">
+        <td>Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td>Germany</td>
+      </tr>
+      <tr onclick="removeCompanyData(this)">
+        <td>Centro comercial Moctezuma</td>
+        <td>Francisco Chang</td>
+        <td>Mexico</td>
+      </tr>
+    </table>
+
+    <div class="data">
+      <input id="company" type="text" placeholder="insert Company..." />
+      <input id="contact" type="text" placeholder="insert Contact..." />
+      <input id="country" type="text" placeholder="insert Country..." />
+      <div>
+        <input type="button" value="등록" onclick="register()" />
+        <input type="button" value="초기화" onclick="reset()" />
+      </div>
+    </div>
+  </body>
+  <script>
+    function register() {
+      var company = document.querySelector("#company").value;
+      console.log(company);
+      if (company == "") {
+        alert("Company 값을 입력하세요.");
+        return false;
+      }
+
+      var contact = document.querySelector("#contact").value;
+      console.log(contact);
+      if (contact == "") {
+        alert("Contact 값을 입력하세요.");
+        return false;
+      }
+
+      var country = document.querySelector("#country").value;
+      console.log(country);
+      if (country == "") {
+        alert("Country 값을 입력하세요.");
+        return false;
+      }
+
+      var newTableRow =
+        "<tr><td>" +
+        company +
+        "</td><td>" +
+        contact +
+        "</td><td>" +
+        country +
+        "</td></tr>";
+      document.querySelector("#companyData").innerHTML += newTableRow;
+    }
+
+    function removeCompanyData(element) {
+      element.style.display = "none";
+    }
+
+    function reset() {
+      location.reload();
+    }
+  </script>
+</html>
