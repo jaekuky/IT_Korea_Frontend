@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+    문제1. 각 단어의 짝수번째 알파벳은 대문자로,
+    홀수번째 알파벳은 소문자로 바꿔보세요.
+
+    *문자열 함수 이용
+    */
+    let word = "TrYHeLlOWoRlD";
+    let result1 = "";
+    for (let i = 0; i < word.length; i++) {
+      if (i % 2 == 0) {
+        result1 += word.charAt(i).toUpperCase();
+      } else {
+        result1 += word.charAt(i).toLowerCase();
+      }
+    }
+
+    console.log("result1" + result1);
+
+    /*
+    문제2. 단어 s의 가운데 글자를 반환하는 로직을 만들어 보세요. 단어의 길이가 짝수라면 가운데 두글자를 반환하면 됩니다.
+    *문자열 함수 이용
+    */
+    let word2 = "abcde"; //c가 나와야함
+    let word3 = "qwer"; //we가 나와야함
+    let result2 = "";
+
+    function getMiddle(inputStr) {
+      let result = "";
+      if (inputStr.length % 2 != 0) {
+        result = inputStr.charAt(inputStr.length / 2);
+      } else {
+        result =
+          inputStr.charAt(inputStr.length / 2 - 1) +
+          inputStr.charAt(inputStr.length / 2);
+      }
+
+      return result;
+    }
+
+    result2 = getMiddle(word2);
+    console.log("result2 : " + result2);
+
+    result2 = getMiddle(word3);
+    console.log("result2 : " + result2);
+
+    /*
+    문제3. 두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 구하는 로직을 완성하세요.
+    예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
+
+    *for문 이용해서
+    */
+    let a = 3;
+    let b = 5;
+    let result3 = 0;
+
+    for (let i = a; i <= b; i++) {
+      result3 += i;
+    }
+
+    console.log("result3 : " + result3);
+  </script>
+</html>

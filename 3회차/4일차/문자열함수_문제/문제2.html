@@ -34,20 +34,39 @@
     //new_id = new_id.replace(/[^a-z|0-9|\-_.]/g, "");
     let regexEng = /^[a-z]+$/;
     let regexNum = /^[0-9]+$/;
-    let regexSpecial = /^[-_.]+$/;
+    //let regexSpecial = /^[-_.]+$/; // 특수문자를 찾는 정규식은 영문자, 숫자와 다름
 
     for (let i = 0; i < new_id.length; i++) {
       let str = new_id.charAt(i); // 단어를 하나하나씩 가져옴
 
       if (
         !regexEng.test(str) &&
-        !regexNum.test(str) &&
-        !regexSpecial.test(str)
+        !regexNum.test(str) //&&
+        //!regexSpecial.test(str)
       ) {
         new_id = new_id.replace(str, "");
       }
     }
     console.log("2단계 : " + new_id);
+
+    // 2단계 정답 코드
+    for (let i = 0; i < new_id.length; i++) {
+      let str = new_id.charAt(i); // 단어를 하나하나씩 가져옴
+
+      if (
+        regexEng.test(str) ||
+        regexNum.test(str) ||
+        str == "-" ||
+        str == "_" ||
+        str == "."
+      ) {
+        answer += str;
+      }
+    }
+
+    console.log("2단계 정답 코드 : " + answer);
+
+    new_id = answer;
 
     // 3단계
     //new_id = new_id.replace(/\.{2,}/g, ".");

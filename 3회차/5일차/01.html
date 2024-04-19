@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .input-box {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        margin: 10px auto;
+      }
+
+      input {
+        width: 100%;
+        margin: 10px 0;
+        font-size: 20px;
+      }
+
+      button {
+        width: 100px;
+        margin: 10px 200px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input-box">
+      <div>
+        <input id="a" type="text" />
+      </div>
+      <div>
+        <input id="b" type="text" />
+      </div>
+      <div>
+        <input id="c" type="text" />
+      </div>
+      <button onclick="reg()">찾기</button>
+    </div>
+  </body>
+  <!-- 다음 주소 -->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    // new: ~뭔가를 불러오다 (호출하다, 객체를 생성하다)
+    function reg() {
+      // 다음 서비스는 카카오가 관리함
+      new daum.Postcode({
+        oncomplete: function (data) {
+          // 주소 클릭할 때, 실행되는 이벤트
+          let addr = "";
+          console.log(data);
+          if (data.userSelectedType === "R") {
+            addr = data.roadAddress; // 도로명 주소
+          } else {
+            addr = data.jibunAddress; // 지번 주소
+          }
+
+          console.log(addr);
+          document.querySelector("#a").value = data.zonecode; // 우편번호
+          document.querySelector("#b").value = addr; // 주소
+          document.querySelector("#c").value = data.addressEnglish; // 영문 주소
+
+          // 문제 1번. data(json형식) 안에 있는 값 중, 빌딩코드, 빌딩이름을 출력하시오.
+          console.log("빌딩 코드: " + data.buildingCode);
+          console.log("빌딩 이름: " + data.buildingName);
+          // 문제 2번. 영문 주소 중, 숫자 제외 (문자열 함수 이용)
+          let engAddr = data.addressEnglish;
+          console.log("영문 주소: " + engAddr);
+          let result = "";
+          engAddr.split(",").forEach((e) => {
+            if (isNaN(e)) {
+              result += e;
+            }
+          });
+          console.log("영문 주소(숫자 제외): " + result);
+        },
+      }).open();
+    }
+  </script>
+</html>

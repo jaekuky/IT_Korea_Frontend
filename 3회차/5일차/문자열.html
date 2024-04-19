@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    let emailList = "about@gmail.com,you@naver.com,me@gmail.com";
+    // 원하는 결과는 각 사용자 이메일 아이디만 얻고 싶다. => about, you, me
+
+    // split()를 사용해서 가져올 수 있다.
+    let emailArray = emailList.split(",");
+    console.log(emailArray);
+
+    emailArray.forEach((e) => {
+      //console.log(e);
+      let userId = e.split("@")[0];
+      console.log("userId : " + userId);
+    });
+
+    let address = "대전광역시 서구 둔산동 갤러리아타임월드, 24451";
+
+    // 문제 1번. 우편번호만 출력하시오.
+    let zipCode = address.split(",")[1];
+    console.log("우편번호 : " + zipCode);
+
+    // 문제 1번 정답 코드
+
+    // 문제 2번. 둔산동만 나오게 출력하기
+    let street = address.split(",")[0];
+    let dong = street.split(" ")[2];
+    console.log("동 : " + dong);
+
+    // 문제 2번 정답 코드
+
+    // 문제 3번. 전화번호 뒷 4자리 제외, ****로 처리하기
+    // ex) 01015771577 -> 0101577****
+    let phoneNumber = "01015771577";
+    //phoneNumber = phoneNumber.substring(0, 7) + "****";
+    phoneNumber = phoneNumber.substring(0, phoneNumber.length - 4) + "****";
+    console.log("전화번호 : " + phoneNumber);
+
+    // 문제 3번 정답 코드
+    const EXCEPTION_LEN = 4; // 4자리 제외
+    let starCount = 0; // 별 개수 카운트
+    starCount = phoneNumber.length - EXCEPTION_LEN; // 전체 길이에서 4자리를 뺀다
+    let star = "";
+    for (let i = 0; i < starCount; i++) {
+      star += "*";
+    }
+    // 뒷자리 번호 구하기
+    let lastNumber = phoneNumber.substring(
+      starCount,
+      starCount + EXCEPTION_LEN
+    );
+    phoneNumber = star + lastNumber;
+    console.log("최종 연락처 : " + phoneNumber);
+
+    // 자주 사용하는 기타 메소드
+    // 정렬
+    const months = ["March", "Jan", "Feb", "Dec"];
+    months.sort(); // 알파벳 순으로 정렬
+    console.log(months);
+
+    const array = [3, 1, 2, 4, 0];
+    array.sort(); // 숫자도 알파벳 순으로 정렬됨
+    console.log(array);
+  </script>
+</html>
