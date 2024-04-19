@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 리액트에서 자주 사용하는 연산자 => 삼항 연산자
+    // 삼항 연산자는 조건문을 간결하게 표현할 수 있는 연산자이다
+    // 조건문 ? 참일 때 값 : 거짓일 때 값
+    var isTrue = false;
+    // 맞으면(true) 200, 틀리면(false) 300이 츨력된다
+    var x = isTrue ? 200 : 300;
+    console.log("x의 값은 : " + x);
+
+    var y = 3 < 5 ? "3은 5보다 작다" : "3은 5보다 크다";
+    console.log("y의 값은 : " + y);
+
+    // getFee: 수수료 반환 함수
+    function getFee(isMember) {
+      // (isMember)를 부르는 용어 => 매개변수, 인자 값, 파라미터 값
+      return isMember ? "$2.00" : "$10.00";
+    }
+
+    let fee = getFee(false); // 함수 호출 (return 값이 있어야 대입이 가능함)
+    console.log(fee);
+
+    // JSON: 리액트 뿐만 아니라 프로그래밍에서 많이 사용하는 포맷
+    // JSON 특징은 {} 중괄호로 이루어져 있고, key와 value 값이 존재한다
+    // []: 배열
+    // {}: json
+    let member = {
+      name: "손흥민",
+      no: 7,
+      teamName: "토트넘",
+      position: "LM",
+    };
+
+    // {key: value}
+    // key는 중복이 불가능, value는 중복이 가능하다
+    console.log(member.name); // key로 접근해서, value 값을 출력함
+    console.log(member.teamName);
+
+    // 번호, 포지션
+    console.log(member.no);
+    console.log(member.position);
+
+    // 한국 국가대표팀 json 만들기
+    // json value 값으로 배열을 넣을 수 있다
+    let koreaTeam = {
+      player: ["손흥민", "황희찬", "이강인", "김민재"],
+      teamCount: 4,
+      coach: "황선홍",
+    };
+
+    console.log("선수 출력: " + koreaTeam.player[0]);
+    console.log("감독 이름: " + koreaTeam.coach);
+
+    let arrayJson = {
+      arr: [3, 10, 15, 14, 20],
+    };
+
+    // 문제: json안에 있는 배열 총합 구하기
+    sum = 0;
+
+    for (let i = 0; i < arrayJson["arr"].length; i++) {
+      sum += arrayJson["arr"][i];
+    }
+    console.log("배열 총합: " + sum);
+  </script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let s = "2three45sixseven";
+    let answer = 0;
+    let num = [
+      "zero",
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+    ];
+    /*
+        s변수에 영단어를 숫자로 변경하시오.
+        "three"는 3, "six"는 6, "seven"은 7에 대응되기 때문에 정답은 입출력 예 #2와 같은 234567이 됩니다.
+        Hint) 배열, 반복문, replace
+    */
+
+    // 내 코드
+    /*
+    for (let i = 0; i < num.length; i++) {
+      if (s.includes(num[i])) {
+        s = s.replace(num[i], i);
+      }
+    }
+    */
+
+    // 정답 코드
+    for (var i = 0; i < num.length; i++) {
+      s = s.replaceAll(num[i], i.toString());
+    }
+
+    answer = Number(s);
+    console.log("정답은 : " + answer);
+  </script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .todo-wrapper {
+        margin: 10px auto;
+        border: 1px solid black;
+        width: 300px;
+      }
+      .todo-body {
+        margin-top: 20px;
+      }
+      .todo {
+        display: flex;
+        justify-content: space-around;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="todo-wrapper">
+      <input id="todo" type="text" placeholder="할일 입력" />
+      <button onclick="addTask()">할일 추가</button>
+      <div class="todo-body">
+        <div id="todo-0" class="todo">
+          <p>낮잠자기</p>
+          <button onclick="completeTask(this)">완료</button>
+          <button onclick="deleteTask(this)">삭제</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let todoCount = 0;
+
+    function addTask() {
+      let todo = document.querySelector("#todo").value.trim();
+      let html =
+        '<div id="todo-"' +
+        todoCount +
+        'class="todo"><p>' +
+        todo +
+        '</p><button onclick="completeTask(this)">완료</button><button onclick="deleteTask(this)">삭제</button></div>';
+
+      document.querySelector(".todo-body").innerHTML += html;
+      todoCount++;
+
+      document.querySelector("#todo").value = "";
+
+      let todoLen = document.querySelector(".todo-body").children.length;
+      if (todoLen > 10) {
+        alert("할일은 10개 까지만 추가할 수 있습니다.");
+        document
+          .querySelector(".todo-body")
+          .removeChild(document.querySelector(".todo-body").lastChild);
+      }
+    }
+
+    function completeTask(element) {
+      let todo = element.parentElement;
+      todo.style.textDecoration = "line-through";
+    }
+
+    function deleteTask(element) {
+      let todo = element.parentElement;
+      todo.style.display = "none";
+    }
+  </script>
+</html>

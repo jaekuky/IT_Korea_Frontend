@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        /* 화면 전체에 배경색을 넣고 싶을 때 */
+        background-color: #8758ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      h1 {
+        color: #fff;
+        /* 
+            r(root)em 기본 크기: 16px
+            root란 최상위 부모를 의미함
+        */
+        margin-bottom: 0.5rem;
+        font-size: 1.75rem;
+      }
+      .todo-Wrapper {
+        background-color: #1a1a40;
+        margin-top: 5rem;
+        padding: 2rem;
+        border-radius: 5px;
+      }
+      .todo-form {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      .todo-input {
+        border: 1px solid #8758ff;
+        padding: 0.5rem 1rem;
+        width: 300px;
+        background-color: none;
+        outline: none;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+      .todo-btn {
+        background-color: #8758ff;
+        color: #fff;
+        border: none;
+        padding: 0.6rem;
+        cursor: pointer;
+      }
+      .todo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+      }
+      .incompleted {
+        color: #fff;
+        cursor: pointer;
+      }
+      .completed {
+        color: #ca5aff;
+        text-decoration: line-through;
+        cursor: pointer;
+      }
+      .todo-upt {
+        background-color: rgb(50, 21, 103);
+        color: #fff;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+      }
+      .todo-del {
+        background-color: rgba(154, 45, 45, 0.863);
+        color: #fff;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Todo 리스트 만들기 -->
+    <!-- Wrapper: '감싸다'라는 뜻 -->
+    <div class="todo-Wrapper">
+      <h1>TODO LIST</h1>
+      <!-- form: form을 작성할 때 쓰는 태그 -->
+      <form class="todo-Form">
+        <input
+          id="todo"
+          class="todo-input"
+          type="text"
+          placeholder="오늘 예정된 업무가 있습니까?"
+        />
+        <!-- button이 form 태그 안에 있으면, type을 button으로 지정해야 된다 -->
+        <button class="todo-btn" type="button" onclick="addTask()">
+          Add Task
+        </button>
+      </form>
+      <div id="todo-list">
+        <!-- Todo 목록 시작 -->
+        <!-- <div id="todo-0" class="todo">
+          <div>
+            <button class="todo-upt" onclick="doTask(this)">SUCCESS</button>
+            <button class="todo-del" onclick="deleteTask(this)">DELETE</button>
+          </div>
+        </div> -->
+        <!-- Todo 목록 끝 -->
+      </div>
+    </div>
+  </body>
+  <script>
+    // 전역변수, 지역변수
+    let count = 0; // 전역변수 (전역변수는 어디서든 사용 가능)
+    // 할 일 추가하기
+    function addTask() {
+      // 1. input에 있는 값을 호출
+      /*
+        // 문자열 함수 (코딩테스트 1번~2번 단골문제)
+        1. trim(): 문자열 앞 뒤 공백 제거
+        2. replaceAll(): 문자 변경
+        3. toUpperCase(): 소문자 -> 대문자로 변경
+        4. toLowerCase(): 대문자 -> 소문자로 변경
+        5. substring(): 특정 문자 잘라서 가져옴
+        6. length: 문자열 길이 가져오기
+      */
+      let todo = document.querySelector("#todo").value.trim();
+      console.log("오늘 할 일: " + todo);
+
+      let html =
+        '<div id="todo-"' +
+        count +
+        'class="todo"><p class="incompleted">' +
+        todo +
+        '</p><div><button class="todo-upt" onclick="doTask(this)">SUCCESS</button><button class="todo-del" onclick="deleteTask(this)">DELETE</button></div></div>';
+
+      document.querySelector("#todo-list").innerHTML += html;
+
+      ++count;
+
+      document.querySelector("#todo").value = ""; // 입력창 초기화, input창에 입력된 값이 사라짐
+
+      // 할 일을 5개만 작성할 수 있도록 제한
+      let len = document.querySelector("#todo-list").children.length;
+      console.log("할 일 개수: " + len);
+      if (len > 5) {
+        alert("할 일은 5개까지만 작성할 수 있습니다.");
+        return false;
+      }
+    }
+
+    // 할 일 완료하기
+    function doTask(element) {
+      console.log(element);
+      let id = element.parentNode.parentNode.id;
+      document.querySelector("#" + id + " .incompleted").className =
+        "completed"; // class이름 변경
+      document.querySelector("#" + id + " .todo-upt").style.display = "none"; // 완료 버튼 숨기기
+    }
+
+    // 할 일 삭제하기
+    function deleteTask(element) {
+      console.log(element);
+      console.log(element.parentNode.parentNode.id); // 부모의 부모 id값을 가져옴
+
+      let id = element.parentNode.parentNode.id;
+      document.querySelector("#" + id).style.display = "none";
+    }
+  </script>
+</html>

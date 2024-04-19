@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /* 
+      1단계 new_id의 모든 대문자를 대응되는 소문자로 치환합니다.
+      => 대문자 'B'와 'T'가 소문자 'b'와 't'로 바뀌었습니다. ex) "...!@BaT#*..y.abcdefghijklm" → "...!@bat#*..y.abcdefghijklm"
+
+      2단계 new_id에서 알파벳 소문자, 숫자, 빼기(-), 밑줄(_), 마침표(.)를 제외한 모든 문자를 제거합니다.
+      => '!', '@', '#', '*' 문자가 제거되었습니다. ex) "...!@bat#*..y.abcdefghijklm" → "...bat..y.abcdefghijklm"
+
+      3단계 new_id에서 마침표(.)가 2번 이상 연속된 부분을 하나의 마침표(.)로 치환합니다.
+      => '...'와 '..' 가 '.'로 바뀌었습니다. ex) "...bat..y.abcdefghijklm" → ".bat.y.abcdefghijklm"
+
+      4단계 new_id의 길이가 16자 이상이면, new_id의 첫 15개의 문자를 제외한 나머지 문자들을 모두 제거합니다.
+      
+      HINT) 문자열 함수, 반복문
+
+    */
+    let new_id = "...!@BaT#*..y.abcdefghijklm";
+    let answer = "";
+
+    // 1단계
+    //new_id = new_id.toLowerCase();
+    new_id = new_id.toLowerCase(); // 정답 코드
+    console.log("1단계 : " + new_id);
+
+    // 2단계
+    //new_id = new_id.replace(/[^a-z|0-9|\-_.]/g, "");
+    let regexEng = /^[a-z]+$/;
+    let regexNum = /^[0-9]+$/;
+    let regexSpecial = /^[-_.]+$/;
+
+    for (let i = 0; i < new_id.length; i++) {
+      let str = new_id.charAt(i); // 단어를 하나하나씩 가져옴
+
+      if (
+        !regexEng.test(str) &&
+        !regexNum.test(str) &&
+        !regexSpecial.test(str)
+      ) {
+        new_id = new_id.replace(str, "");
+      }
+    }
+    console.log("2단계 : " + new_id);
+
+    // 3단계
+    //new_id = new_id.replace(/\.{2,}/g, ".");
+    //console.log("3단계 : " + new_id);
+    while (new_id.indexOf("..") != -1) {
+      new_id = new_id.replaceAll("..", ".");
+    }
+    console.log("3단계 : " + new_id);
+
+    // 4단계
+    //new_id = new_id.substring(0, 15);
+    if (new_id.length >= 16) {
+      new_id = new_id.substring(0, 15);
+    }
+
+    answer = new_id;
+
+    console.log("정답 : " + answer);
+  </script>
+</html>

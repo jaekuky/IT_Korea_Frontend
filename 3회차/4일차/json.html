@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      div {
+        margin: 10px auto;
+        width: 500px;
+        height: auto;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script>
+    // json
+    // 배열은 []로 표현하고, json은 {}로 표현한다.
+    // json은 key와 value로 이루어져 있다.
+    // key는 중복이 불가능하고, value는 중복이 가능하다.
+    let jsonData = {
+      student: ["aaa", "bbb", "ccc", "ddd"],
+      subject: ["SQL", "JAVA", "HTML"],
+    };
+
+    console.log(jsonData.student[1]); // 1번째 학생 출력
+    console.log(jsonData.subject[0]); // 0번째 과목 출력
+
+    // Quiz. Subject SQL을 React.js로 변경하시오.
+    jsonData.subject[0] = "React.js"; // json 데이터 변경
+    console.log(jsonData.subject[0]); // 0번째 과목 출력
+
+    // 마라톤 참가 선수 리스트 배열, 배열 안에 json이 올 수 있다.
+    // json도 데이터 타입이다
+    let maratonList = [
+      {
+        no: 300,
+        paticipant: "홍길동",
+        isComplete: false,
+        type: "half maraton",
+        time: null,
+      },
+      {
+        no: 301,
+        paticipant: "박길동",
+        isComplete: true,
+        type: "half maraton",
+        time: "2024-04-18 08:15:15",
+      },
+      {
+        no: 310,
+        paticipant: "김길동",
+        isComplete: true,
+        type: "half maraton",
+        time: "2024-04-18 08:00:15",
+      },
+      {
+        no: 320,
+        paticipant: "이길동",
+        isComplete: true,
+        type: "half maraton",
+        time: "2024-04-18 08:05:15",
+      },
+    ];
+
+    let count = 0;
+    let temp = 0; // 임시변수
+    let max = 0; // 박길동 선수가 15분으로 꼴찌함
+    // 실무에서 접근하는 방법
+    // isComplete: 마라톤 완주 여부
+    // 마라톤을 완주한 참가자 이름, 등번호 출력
+    for (let i = 0; i < maratonList.length; i++) {
+      //console.log(maratonList[i].isComplete); // 마라톤 완주 여부 출력
+      if (maratonList[i].isComplete) {
+        console.log(maratonList[i].paticipant); // 마라톤 완주한 참가자 이름 출력
+        console.log(maratonList[i].no); // 마라톤 완주한 참가자 등번호 출력
+        document.querySelector("#app").innerHTML +=
+          "<p>" + maratonList[i].paticipant + ", " + maratonList[i].no + "</p>";
+      }
+
+      /*
+        Quiz
+        1. half maraton에 참여한 참가자는 총 몇 명인가?
+
+      */
+
+      if (maratonList[i].type == "half maraton") {
+        ++count;
+      }
+
+      if (maratonList[i].time != null) {
+        let time = new Date(maratonList[i].time).getTime();
+        // 1970년 1월 1일 00:00:00부터 ~ 2024-04-18 08:15:15까지의 시간을 ms로 출력
+        console.log("time: ", +time);
+
+        if (max < time) {
+          max = time; // 시간 대입
+          temp = i; // 몇 번째 인지?
+        }
+      }
+    }
+    console.log("half maraton 참가자는 총 " + count + "명 입니다.");
+  </script>
+</html>
